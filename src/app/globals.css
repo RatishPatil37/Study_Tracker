@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #101010;
+  --surface: #FAFAFA;
+  --border: #E7E7E7;
+  --muted: #666666;
+  --solid-black: #111111;
+  --solid-white: #F5F5F5;
+}
+
+.dark {
+  --background: #0B0B0B;
+  --foreground: #F5F5F5;
+  --surface: #141414;
+  --border: #292929;
+  --muted: #A3A3A3;
+  --solid-black: #FFFFFF;
+  --solid-white: #111111;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "tnum";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tabular numerals for numbers and times */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hairline dividers */
+.border-hairline {
+  border-width: 1px;
+  border-color: var(--border);
+}
+
+/* Restrained transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
