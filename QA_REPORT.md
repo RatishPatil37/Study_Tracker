@@ -69,11 +69,29 @@ Visual and interactive validation was conducted using the headless browser subag
 
 ---
 
-## 4. Production Build Verification
+## 4. Live API & Cloud Endpoints Verification Suite
+
+All 9 live integration endpoints were verified against running server (`http://localhost:3000`) and remote Supabase Cloud:
+
+| Endpoint / Integration | Method / Source | Status | Verified Behavior |
+|------------------------|:---------------:|:------:|-------------------|
+| **Supabase Cloud Connection** | Admin Client | **PASS** | `profiles` & `study_tasks` tables connected and operational |
+| **Gemini API Live Generation** | HTTPS (Google) | **PASS** | `gemini-3.8-flash` tested; auto-fallback to `gemini-3.5-flash-lite` verified |
+| **GET /api/state** | HTTP GET | **PASS** | Returns initialized 2026-10-21 state with profile, tasks, courses, and feasibility |
+| **POST /api/scheduler** | HTTP POST | **PASS** | Generated 251 deterministic chunk assignments; plan version committed |
+| **POST /api/tasks** | HTTP POST | **PASS** | Created new study task with automatic Supabase sync |
+| **POST /api/sessions** | HTTP POST | **PASS** | Singleton active timer started and ended cleanly |
+| **POST /api/mocks** | HTTP POST | **PASS** | Recorded mock score with negative marking math and Supabase sync |
+| **POST /api/gemini** | HTTP POST | **PASS** | Live AI analysis returned valid schema with recommendations |
+| **GET /api/export** | HTTP GET | **PASS** | JSON backup (12 tasks) and CSV export (14 lines) generated |
+
+---
+
+## 5. Production Build Verification
 
 ```
 > npm run build
-✓ Compiled successfully in 10.9s
+✓ Compiled successfully in 4.5s
 ✓ Linting and checking validity of types
 ✓ Generating static pages (15/15)
 ✓ Finalizing page optimization
