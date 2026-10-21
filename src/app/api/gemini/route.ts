@@ -55,9 +55,8 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // Call Google Gemini API (Interactions/GenerateContent)
-    const targetModel = model || process.env.GEMINI_MODEL || "gemini-2.5-flash";
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${targetModel}:generateContent?key=${apiKey}`;
+    let targetModel = model || process.env.GEMINI_MODEL || "gemini-3.8-flash";
+    let url = `https://generativelanguage.googleapis.com/v1beta/models/${targetModel}:generateContent?key=${apiKey}`;
 
     const contextTasks = repo.getTasks().slice(0, 10).map((t) => `${t.title} (${t.status}, ${t.estimatedMinutes}m, prio ${t.priority})`).join("\n");
     const mocks = repo.getMockTests().map((m) => `Mock ${m.testNumber} (Historical: ${m.isHistoricalBaseline}): ${m.rawScore}/${m.maxMarks}`).join("\n");
@@ -75,26 +74,39 @@ Respond ONLY with a valid JSON object matching this schema:
   ]
 }`;
 
-    const response = await fetch(url, {
+    const requestPayload = {
+      contents: [
+        {
+          role: "user",
+          parts: [
+            {
+              text: `${systemPrompt}\n\nUser Context:\nTasks:\n${contextTasks}\n\nMocks:\n${mocks}\n\nUser Query: ${prompt}`,
+            },
+          ],
+        },
+      ],
+      generationConfig: {
+        temperature: 0.2,
+        responseMimeType: "application/json",
+      },
+    };
+
+    let response = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [
-          {
-            role: "user",
-            parts: [
-              {
-                text: `${systemPrompt}\n\nUser Context:\nTasks:\n${contextTasks}\n\nMocks:\n${mocks}\n\nUser Query: ${prompt}`,
-              },
-            ],
-          },
-        ],
-        generationConfig: {
-          temperature: 0.2,
-          responseMimeType: "application/json",
-        },
-      }),
+      body: JSON.stringify(requestPayload),
     });
+
+    // If model not found (e.g. 3.8 preview vs 2.5), auto-fallback to gemini-2.5-flash
+    if (response.status === 404 && targetModel !== "gemini-2.5-flash") {
+      targetModel = "gemini-2.5-flash";
+      url = `https://generativelanguage.googleapis.com/v1beta/models/${targetModel}:generateContent?key=${apiKey}`;
+      response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(requestPayload),
+      });
+    }
 
     if (!response.ok) {
       const errText = await response.text();

@@ -248,7 +248,7 @@ export function ReviewView({ appState, onRefresh }: ReviewViewProps) {
                 {dueErrors.map((item) => (
                   <div key={item.id} className="p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-neutral-50 dark:hover:bg-neutral-900">
                     <div className="space-y-1">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <span className="font-semibold">{item.source}</span>
                         <span className="px-1.5 py-0.2 text-[9px] font-mono border border-hairline rounded uppercase">
                           {item.errorCategory}
@@ -294,12 +294,12 @@ export function ReviewView({ appState, onRefresh }: ReviewViewProps) {
               </div>
               <div className="divide-y divide-hairline text-xs">
                 {upcomingErrors.map((item) => (
-                  <div key={item.id} className="p-3 flex items-center justify-between">
+                  <div key={item.id} className="p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
                       <div className="font-semibold">{item.source}</div>
                       <div className="text-[11px] text-muted-light dark:text-muted-dark">{item.correctionNotes}</div>
                     </div>
-                    <div className="text-right text-[11px] font-mono tabular-nums text-muted-light dark:text-muted-dark">
+                    <div className="text-left sm:text-right text-[11px] font-mono tabular-nums text-muted-light dark:text-muted-dark pt-1 sm:pt-0 border-t sm:border-t-0 border-hairline sm:border-transparent">
                       <div>Due: {formatDisplayDateIST(item.nextReviewDate)}</div>
                       <div className="text-[10px]">Interval: {item.revisitIntervalDays} days</div>
                     </div>

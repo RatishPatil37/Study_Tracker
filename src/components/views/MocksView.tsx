@@ -259,7 +259,7 @@ export function MocksView({ appState, onRefresh }: MocksViewProps) {
               className="w-full p-2 border border-hairline rounded bg-transparent text-xs"
             />
           </div>
-          <div className="flex items-center justify-between pt-2">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
             <label className="flex items-center gap-2 cursor-pointer">
               <input
                 type="checkbox"
@@ -269,7 +269,7 @@ export function MocksView({ appState, onRefresh }: MocksViewProps) {
               />
               <span>Full 2h Mock Analysis Completed</span>
             </label>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center justify-end gap-2">
               <button
                 type="button"
                 onClick={() => setOpenModal(false)}
@@ -307,7 +307,7 @@ export function MocksView({ appState, onRefresh }: MocksViewProps) {
             {currentMocks.map((mock) => (
               <div key={mock.id} className="p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-neutral-50 dark:hover:bg-neutral-900">
                 <div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 flex-wrap">
                     <span className="font-semibold">Mock #{mock.testNumber}: {mock.paperSource}</span>
                     {mock.analysisCompleted && (
                       <span className="px-1.5 py-0.2 text-[9px] font-mono bg-neutral-200 dark:bg-neutral-800 rounded flex items-center gap-1">
@@ -325,7 +325,7 @@ export function MocksView({ appState, onRefresh }: MocksViewProps) {
                   )}
                 </div>
 
-                <div className="text-right font-mono tabular-nums shrink-0">
+                <div className="text-left sm:text-right font-mono tabular-nums shrink-0 pt-1 sm:pt-0 border-t sm:border-t-0 border-hairline sm:border-transparent">
                   <div className="text-base font-bold">
                     {mock.rawScore} / {mock.maxMarks}
                   </div>

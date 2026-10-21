@@ -1706,7 +1706,7 @@
       "tasks": [
         {
           "id": "task-la-core",
-          "userId": "test-user-1792558937650-1",
+          "userId": "test-user-1792566394239-1",
           "type": "video",
           "subjectId": "subj-linear-algebra",
           "title": "Linear Algebra Core Lectures",
@@ -1717,12 +1717,12 @@
           "priority": 2,
           "why": "Linear Algebra fundamental syllabus",
           "prerequisites": [],
-          "createdAt": "2026-10-21T05:02:17.690Z",
-          "updatedAt": "2026-10-21T05:02:17.691Z"
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
         },
         {
           "id": "task-prob-core",
-          "userId": "test-user-1792558937650-1",
+          "userId": "test-user-1792566394239-1",
           "type": "video",
           "subjectId": "subj-prob-stats",
           "title": "Probability & Statistics Core (PnC Focus)",
@@ -1733,12 +1733,12 @@
           "priority": 1,
           "why": "Weak subject (Probability & Stats, especially PnC)",
           "prerequisites": [],
-          "createdAt": "2026-10-21T05:02:17.691Z",
-          "updatedAt": "2026-10-21T05:02:17.691Z"
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
         },
         {
           "id": "task-calc-core",
-          "userId": "test-user-1792558937650-1",
+          "userId": "test-user-1792566394239-1",
           "type": "video",
           "subjectId": "subj-calculus",
           "title": "Calculus Core Lectures",
@@ -1749,12 +1749,12 @@
           "priority": 3,
           "why": "Calculus syllabus coverage",
           "prerequisites": [],
-          "createdAt": "2026-10-21T05:02:17.691Z",
-          "updatedAt": "2026-10-21T05:02:17.691Z"
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
         },
         {
           "id": "task-py-core",
-          "userId": "test-user-1792558937650-1",
+          "userId": "test-user-1792566394239-1",
           "type": "video",
           "subjectId": "subj-python-dsa",
           "title": "Python + DSA Playlist",
@@ -1765,12 +1765,12 @@
           "priority": 2,
           "why": "Programming & Data Structures",
           "prerequisites": [],
-          "createdAt": "2026-10-21T05:02:17.691Z",
-          "updatedAt": "2026-10-21T05:02:17.691Z"
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
         },
         {
           "id": "task-algo-core",
-          "userId": "test-user-1792558937650-1",
+          "userId": "test-user-1792566394239-1",
           "type": "video",
           "subjectId": "subj-algorithms",
           "title": "Algorithms Playlist",
@@ -1781,12 +1781,12 @@
           "priority": 2,
           "why": "Algorithms design and complexity",
           "prerequisites": [],
-          "createdAt": "2026-10-21T05:02:17.691Z",
-          "updatedAt": "2026-10-21T05:02:17.691Z"
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
         },
         {
           "id": "task-dwm-core",
-          "userId": "test-user-1792558937650-1",
+          "userId": "test-user-1792566394239-1",
           "type": "video",
           "subjectId": "subj-dwm",
           "title": "Data Warehousing & Mining",
@@ -1797,12 +1797,12 @@
           "priority": 3,
           "why": "DWM topics",
           "prerequisites": [],
-          "createdAt": "2026-10-21T05:02:17.691Z",
-          "updatedAt": "2026-10-21T05:02:17.691Z"
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
         },
         {
           "id": "task-dbms-core",
-          "userId": "test-user-1792558937650-1",
+          "userId": "test-user-1792566394239-1",
           "type": "video",
           "subjectId": "subj-dbms",
           "title": "DBMS Crash Course (Provisional 35h)",
@@ -1813,12 +1813,12 @@
           "priority": 1,
           "why": "Weak subject (DBMS crash course option)",
           "prerequisites": [],
-          "createdAt": "2026-10-21T05:02:17.691Z",
-          "updatedAt": "2026-10-21T05:02:17.691Z"
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
         },
         {
           "id": "task-aptitude-core",
-          "userId": "test-user-1792558937650-1",
+          "userId": "test-user-1792566394239-1",
           "type": "video",
           "subjectId": "subj-aptitude",
           "title": "General Aptitude Marathons",
@@ -1829,12 +1829,12 @@
           "priority": 3,
           "why": "General Aptitude (Locked until 1 Dec 2026)",
           "prerequisites": [],
-          "createdAt": "2026-10-21T05:02:17.691Z",
-          "updatedAt": "2026-10-21T05:02:17.691Z"
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
         },
         {
           "id": "task-ese-game-theory",
-          "userId": "test-user-1792558937650-1",
+          "userId": "test-user-1792566394239-1",
           "type": "ese",
           "subjectId": "subj-ese-game-theory",
           "title": "Game Theory ESE Preparation (Highest ESE weight)",
@@ -1845,12 +1845,12 @@
           "priority": 1,
           "why": "ESE Exam: Game Theory confusing; needs 63/80",
           "prerequisites": [],
-          "createdAt": "2026-10-21T05:02:17.691Z",
-          "updatedAt": "2026-10-21T05:02:17.691Z"
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
         },
         {
           "id": "task-ese-bda",
-          "userId": "test-user-1792558937650-1",
+          "userId": "test-user-1792566394239-1",
           "type": "ese",
           "subjectId": "subj-ese-bda",
           "title": "Big Data Analytics ESE Preparation",
@@ -1861,8 +1861,8 @@
           "priority": 1,
           "why": "ESE Exam: BDA new subject; needs 65/80",
           "prerequisites": [],
-          "createdAt": "2026-10-21T05:02:17.691Z",
-          "updatedAt": "2026-10-21T05:02:17.691Z"
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
         },
         {
           "type": "video",
@@ -1874,24 +1874,24 @@
           "pinned": false,
           "priority": 2,
           "prerequisites": [],
-          "id": "task-1792558937696-i33is",
-          "userId": "test-user-1792558937650-1",
-          "createdAt": "2026-10-21T05:02:17.696Z",
-          "updatedAt": "2026-10-21T05:02:17.696Z"
+          "id": "task-1792566394290-o80rp",
+          "userId": "test-user-1792566394239-1",
+          "createdAt": "2026-10-21T07:06:34.290Z",
+          "updatedAt": "2026-10-21T07:06:34.290Z"
         }
       ],
       "assignments": [],
       "sessions": [
         {
-          "id": "sess-1792558937709",
-          "userId": "test-user-1792558937650-1",
+          "id": "sess-1792566394298",
+          "userId": "test-user-1792566394239-1",
           "taskId": "task-la-core",
-          "startAt": "2026-10-21T05:02:17.709Z",
+          "startAt": "2026-10-21T07:06:34.298Z",
           "pausedSeconds": 0,
           "actualSeconds": 3000,
           "isActive": false,
           "source": "timer",
-          "endAt": "2026-10-21T05:02:17.713Z"
+          "endAt": "2026-10-21T07:06:34.303Z"
         }
       ],
       "questions": [],
@@ -1899,7 +1899,7 @@
       "mocks": [
         {
           "id": "mock-historical-2026",
-          "userId": "test-user-1792558937650-1",
+          "userId": "test-user-1792566394239-1",
           "testNumber": 0,
           "isHistoricalBaseline": true,
           "testDate": "2026-02-07",
@@ -1928,8 +1928,8 @@
           "timeSpentMinutes": 180,
           "analysisCompleted": true,
           "analysisNotes": "Good accuracy in Linear Algebra; lost marks in DBMS.",
-          "id": "mock-1792558937715",
-          "userId": "test-user-1792558937650-1"
+          "id": "mock-1792566394306",
+          "userId": "test-user-1792566394239-1"
         }
       ],
       "errors": [
@@ -1942,9 +1942,9 @@
           "nextReviewDate": "2026-10-28",
           "attemptCount": 3,
           "status": "resolved",
-          "id": "err-1792558937717",
-          "userId": "test-user-1792558937650-1",
-          "createdAt": "2026-10-21T05:02:17.717Z"
+          "id": "err-1792566394307",
+          "userId": "test-user-1792566394239-1",
+          "createdAt": "2026-10-21T07:06:34.307Z"
         }
       ],
       "attendance": [
@@ -10626,6 +10626,1424 @@
           }
         }
       ]
+    },
+    "test-user-1792566394239-1": {
+      "profile": {
+        "id": "test-user-1792566394239-1",
+        "email": "student@studyos.local",
+        "timezone": "Asia/Kolkata",
+        "targetExamDate": "2027-02-06",
+        "targetScore": 80,
+        "historicalBaselineScore": 21,
+        "settings": {
+          "dailyBufferPercent": 0.15,
+          "defaultHolidayMinutes": 450,
+          "defaultCollegeMinutes": 105
+        }
+      },
+      "subjects": [
+        {
+          "id": "subj-linear-algebra",
+          "name": "Linear Algebra",
+          "code": "LA",
+          "category": "gate_core",
+          "baseline": "prior_knowledge",
+          "notes": "Prior knowledge from college. Full playlist available."
+        },
+        {
+          "id": "subj-prob-stats",
+          "name": "Probability & Statistics",
+          "code": "P&S",
+          "category": "gate_core",
+          "baseline": "weak",
+          "notes": "Weak subject, especially Permutations & Combinations (PnC). Higher priority."
+        },
+        {
+          "id": "subj-calculus",
+          "name": "Calculus",
+          "code": "CALC",
+          "category": "gate_core",
+          "baseline": "prior_knowledge",
+          "notes": "Prior knowledge from college."
+        },
+        {
+          "id": "subj-python-dsa",
+          "name": "Python + DSA",
+          "code": "PY_DSA",
+          "category": "gate_core",
+          "baseline": "prior_knowledge",
+          "notes": "Prior knowledge from college and projects."
+        },
+        {
+          "id": "subj-algorithms",
+          "name": "Algorithms",
+          "code": "ALGO",
+          "category": "gate_core",
+          "baseline": "neutral",
+          "notes": "Standard gate core algorithms."
+        },
+        {
+          "id": "subj-dwm",
+          "name": "Data Warehousing & Mining",
+          "code": "DWM",
+          "category": "gate_core",
+          "baseline": "prior_knowledge",
+          "notes": "Prior knowledge from college coursework."
+        },
+        {
+          "id": "subj-dbms",
+          "name": "DBMS",
+          "code": "DBMS",
+          "category": "gate_core",
+          "baseline": "weak",
+          "notes": "Weak subject. Preferred ~35h crash course over 92h full playlist."
+        },
+        {
+          "id": "subj-aptitude",
+          "name": "General Aptitude",
+          "code": "GA",
+          "category": "gate_general",
+          "baseline": "neutral",
+          "notes": "Marathons only. Hard lock: Cannot be scheduled before 1 Dec 2026."
+        },
+        {
+          "id": "subj-ml-ai",
+          "name": "Machine Learning & AI",
+          "code": "ML_AI",
+          "category": "gate_core",
+          "baseline": "prior_knowledge",
+          "notes": "Previous crash-course completed with some PYQs. Status: lectures_done, NOT mastered."
+        },
+        {
+          "id": "subj-ese-dmm",
+          "name": "Disaster Management (DMM)",
+          "code": "DMM",
+          "category": "ese_only",
+          "baseline": "prior_knowledge",
+          "weightESE": 1,
+          "notes": "IA: 19/20, Needs 61/80 in sem exam for 80 total."
+        },
+        {
+          "id": "subj-ese-dl",
+          "name": "Deep Learning",
+          "code": "DL",
+          "category": "ese_only",
+          "baseline": "prior_knowledge",
+          "weightESE": 2,
+          "notes": "IA: 14/20, Needs 66/80 in sem exam for 80 total."
+        },
+        {
+          "id": "subj-ese-bda",
+          "name": "Big Data Analytics",
+          "code": "BDA",
+          "category": "ese_only",
+          "baseline": "neutral",
+          "weightESE": 4,
+          "notes": "IA: 15/20, Needs 65/80 in sem exam for 80 total. High ESE weight."
+        },
+        {
+          "id": "subj-ese-nlp",
+          "name": "Natural Language Processing",
+          "code": "NLP",
+          "category": "ese_only",
+          "baseline": "prior_knowledge",
+          "weightESE": 2,
+          "notes": "IA: 18/20, Needs 62/80 in sem exam for 80 total."
+        },
+        {
+          "id": "subj-ese-game-theory",
+          "name": "Game Theory",
+          "code": "GT",
+          "category": "ese_only",
+          "baseline": "weak",
+          "weightESE": 5,
+          "notes": "IA: 17/20, Needs 63/80 in sem exam for 80 total. High ESE weight."
+        }
+      ],
+      "courses": [
+        {
+          "id": "course-la",
+          "subjectId": "subj-linear-algebra",
+          "label": "Linear Algebra Playlist",
+          "isCrashCourse": false,
+          "totalLectures": 16,
+          "sourceRuntimeHours": 35,
+          "effectiveMultiplier": 2,
+          "selected": true
+        },
+        {
+          "id": "course-p-stats",
+          "subjectId": "subj-prob-stats",
+          "label": "Probability & Statistics Playlist",
+          "isCrashCourse": false,
+          "totalLectures": 17,
+          "sourceRuntimeHours": 43,
+          "effectiveMultiplier": 2,
+          "selected": true
+        },
+        {
+          "id": "course-calc",
+          "subjectId": "subj-calculus",
+          "label": "Calculus Playlist",
+          "isCrashCourse": false,
+          "totalLectures": 16,
+          "sourceRuntimeHours": 32,
+          "effectiveMultiplier": 2,
+          "selected": true
+        },
+        {
+          "id": "course-py-dsa",
+          "subjectId": "subj-python-dsa",
+          "label": "Python + DSA Playlist",
+          "isCrashCourse": false,
+          "totalLectures": 19,
+          "sourceRuntimeHours": 32,
+          "effectiveMultiplier": 1.5,
+          "selected": true
+        },
+        {
+          "id": "course-algo",
+          "subjectId": "subj-algorithms",
+          "label": "Algorithms Playlist",
+          "isCrashCourse": false,
+          "totalLectures": 17,
+          "sourceRuntimeHours": 36,
+          "effectiveMultiplier": 1.5,
+          "selected": true
+        },
+        {
+          "id": "course-dwm",
+          "subjectId": "subj-dwm",
+          "label": "Data Warehousing & Mining Playlist",
+          "isCrashCourse": false,
+          "totalLectures": 8,
+          "sourceRuntimeHours": 11,
+          "effectiveMultiplier": 1.5,
+          "selected": true
+        },
+        {
+          "id": "course-dbms-crash",
+          "subjectId": "subj-dbms",
+          "label": "DBMS Crash Course (Preferred)",
+          "isCrashCourse": true,
+          "totalLectures": null,
+          "sourceRuntimeHours": 35,
+          "effectiveMultiplier": 1.5,
+          "selected": true,
+          "notes": "Provisional 35h estimate. Selected by default per user preference."
+        },
+        {
+          "id": "course-dbms-full",
+          "subjectId": "subj-dbms",
+          "label": "DBMS Full Playlist (Alternative)",
+          "isCrashCourse": false,
+          "totalLectures": 26,
+          "sourceRuntimeHours": 92,
+          "effectiveMultiplier": 1.5,
+          "selected": false,
+          "notes": "Alternative full 92h course (138 effective hours). Not active when crash course is active."
+        },
+        {
+          "id": "course-aptitude",
+          "subjectId": "subj-aptitude",
+          "label": "General Aptitude Marathons",
+          "isCrashCourse": true,
+          "totalLectures": null,
+          "sourceRuntimeHours": 15,
+          "effectiveMultiplier": 1.5,
+          "selected": true,
+          "notes": "Scheduled strictly starting December 2026."
+        }
+      ],
+      "lectures": [],
+      "tasks": [
+        {
+          "id": "task-la-core",
+          "userId": "test-user-1792566394239-1",
+          "type": "video",
+          "subjectId": "subj-linear-algebra",
+          "title": "Linear Algebra Core Lectures",
+          "estimatedMinutes": 4200,
+          "completedMinutes": 50,
+          "status": "doing",
+          "pinned": false,
+          "priority": 2,
+          "why": "Linear Algebra fundamental syllabus",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
+        },
+        {
+          "id": "task-prob-core",
+          "userId": "test-user-1792566394239-1",
+          "type": "video",
+          "subjectId": "subj-prob-stats",
+          "title": "Probability & Statistics Core (PnC Focus)",
+          "estimatedMinutes": 5160,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 1,
+          "why": "Weak subject (Probability & Stats, especially PnC)",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
+        },
+        {
+          "id": "task-calc-core",
+          "userId": "test-user-1792566394239-1",
+          "type": "video",
+          "subjectId": "subj-calculus",
+          "title": "Calculus Core Lectures",
+          "estimatedMinutes": 3840,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 3,
+          "why": "Calculus syllabus coverage",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
+        },
+        {
+          "id": "task-py-core",
+          "userId": "test-user-1792566394239-1",
+          "type": "video",
+          "subjectId": "subj-python-dsa",
+          "title": "Python + DSA Playlist",
+          "estimatedMinutes": 2880,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 2,
+          "why": "Programming & Data Structures",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
+        },
+        {
+          "id": "task-algo-core",
+          "userId": "test-user-1792566394239-1",
+          "type": "video",
+          "subjectId": "subj-algorithms",
+          "title": "Algorithms Playlist",
+          "estimatedMinutes": 3240,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 2,
+          "why": "Algorithms design and complexity",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
+        },
+        {
+          "id": "task-dwm-core",
+          "userId": "test-user-1792566394239-1",
+          "type": "video",
+          "subjectId": "subj-dwm",
+          "title": "Data Warehousing & Mining",
+          "estimatedMinutes": 990,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 3,
+          "why": "DWM topics",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
+        },
+        {
+          "id": "task-dbms-core",
+          "userId": "test-user-1792566394239-1",
+          "type": "video",
+          "subjectId": "subj-dbms",
+          "title": "DBMS Crash Course (Provisional 35h)",
+          "estimatedMinutes": 3150,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 1,
+          "why": "Weak subject (DBMS crash course option)",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
+        },
+        {
+          "id": "task-aptitude-core",
+          "userId": "test-user-1792566394239-1",
+          "type": "video",
+          "subjectId": "subj-aptitude",
+          "title": "General Aptitude Marathons",
+          "estimatedMinutes": 1350,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 3,
+          "why": "General Aptitude (Locked until 1 Dec 2026)",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
+        },
+        {
+          "id": "task-ese-game-theory",
+          "userId": "test-user-1792566394239-1",
+          "type": "ese",
+          "subjectId": "subj-ese-game-theory",
+          "title": "Game Theory ESE Preparation (Highest ESE weight)",
+          "estimatedMinutes": 1800,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 1,
+          "why": "ESE Exam: Game Theory confusing; needs 63/80",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
+        },
+        {
+          "id": "task-ese-bda",
+          "userId": "test-user-1792566394239-1",
+          "type": "ese",
+          "subjectId": "subj-ese-bda",
+          "title": "Big Data Analytics ESE Preparation",
+          "estimatedMinutes": 1500,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 1,
+          "why": "ESE Exam: BDA new subject; needs 65/80",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.287Z",
+          "updatedAt": "2026-10-21T07:06:34.287Z"
+        },
+        {
+          "type": "video",
+          "subjectId": "subj-linear-algebra",
+          "title": "User 1 Private Task",
+          "estimatedMinutes": 60,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 2,
+          "prerequisites": [],
+          "id": "task-1792566394290-o80rp",
+          "userId": "test-user-1792566394239-1",
+          "createdAt": "2026-10-21T07:06:34.290Z",
+          "updatedAt": "2026-10-21T07:06:34.290Z"
+        }
+      ],
+      "assignments": [],
+      "sessions": [
+        {
+          "id": "sess-1792566394298",
+          "userId": "test-user-1792566394239-1",
+          "taskId": "task-la-core",
+          "startAt": "2026-10-21T07:06:34.298Z",
+          "pausedSeconds": 0,
+          "actualSeconds": 3000,
+          "isActive": false,
+          "source": "timer",
+          "endAt": "2026-10-21T07:06:34.303Z"
+        }
+      ],
+      "questions": [],
+      "attempts": [],
+      "mocks": [
+        {
+          "id": "mock-historical-2026",
+          "userId": "test-user-1792566394239-1",
+          "testNumber": 0,
+          "isHistoricalBaseline": true,
+          "testDate": "2026-02-07",
+          "paperSource": "GATE DA 2026 Official Paper (Baseline attempt with ~2 weeks prep)",
+          "rawScore": 21,
+          "maxMarks": 100,
+          "correctCount": 12,
+          "incorrectCount": 15,
+          "skippedCount": 38,
+          "negativeMarks": 5,
+          "timeSpentMinutes": 180,
+          "analysisCompleted": true,
+          "analysisNotes": "Historical baseline attempt prior to starting dedicated StudyOS prep."
+        },
+        {
+          "testNumber": 1,
+          "isHistoricalBaseline": false,
+          "testDate": "2026-11-01",
+          "paperSource": "GATE DA 2027 Mock 1",
+          "rawScore": 48.5,
+          "maxMarks": 100,
+          "correctCount": 25,
+          "incorrectCount": 8,
+          "skippedCount": 32,
+          "negativeMarks": 2.66,
+          "timeSpentMinutes": 180,
+          "analysisCompleted": true,
+          "analysisNotes": "Good accuracy in Linear Algebra; lost marks in DBMS.",
+          "id": "mock-1792566394306",
+          "userId": "test-user-1792566394239-1"
+        }
+      ],
+      "errors": [
+        {
+          "subjectId": "subj-prob-stats",
+          "source": "PYQ 2024 Q14",
+          "errorCategory": "calculation",
+          "correctionNotes": "Remember denominator in Bayes formula",
+          "revisitIntervalDays": 7,
+          "nextReviewDate": "2026-10-28",
+          "attemptCount": 3,
+          "status": "resolved",
+          "id": "err-1792566394307",
+          "userId": "test-user-1792566394239-1",
+          "createdAt": "2026-10-21T07:06:34.307Z"
+        }
+      ],
+      "attendance": [
+        {
+          "localDate": "2027-01-11",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-12",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-13",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-14",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-15",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-16",
+          "isWorkingDay": false,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-17",
+          "isWorkingDay": false,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-18",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-19",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-20",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-21",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-22",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-23",
+          "isWorkingDay": false,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-24",
+          "isWorkingDay": false,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-25",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-26",
+          "isWorkingDay": false,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": true,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-27",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-28",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-29",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-30",
+          "isWorkingDay": false,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-31",
+          "isWorkingDay": false,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-02-01",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-02-02",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-02-03",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-02-04",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-02-05",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        }
+      ],
+      "dayOverrides": [],
+      "planVersions": []
+    },
+    "test-user-1792566394239-2": {
+      "profile": {
+        "id": "test-user-1792566394239-2",
+        "email": "student@studyos.local",
+        "timezone": "Asia/Kolkata",
+        "targetExamDate": "2027-02-06",
+        "targetScore": 80,
+        "historicalBaselineScore": 21,
+        "settings": {
+          "dailyBufferPercent": 0.15,
+          "defaultHolidayMinutes": 450,
+          "defaultCollegeMinutes": 105
+        }
+      },
+      "subjects": [
+        {
+          "id": "subj-linear-algebra",
+          "name": "Linear Algebra",
+          "code": "LA",
+          "category": "gate_core",
+          "baseline": "prior_knowledge",
+          "notes": "Prior knowledge from college. Full playlist available."
+        },
+        {
+          "id": "subj-prob-stats",
+          "name": "Probability & Statistics",
+          "code": "P&S",
+          "category": "gate_core",
+          "baseline": "weak",
+          "notes": "Weak subject, especially Permutations & Combinations (PnC). Higher priority."
+        },
+        {
+          "id": "subj-calculus",
+          "name": "Calculus",
+          "code": "CALC",
+          "category": "gate_core",
+          "baseline": "prior_knowledge",
+          "notes": "Prior knowledge from college."
+        },
+        {
+          "id": "subj-python-dsa",
+          "name": "Python + DSA",
+          "code": "PY_DSA",
+          "category": "gate_core",
+          "baseline": "prior_knowledge",
+          "notes": "Prior knowledge from college and projects."
+        },
+        {
+          "id": "subj-algorithms",
+          "name": "Algorithms",
+          "code": "ALGO",
+          "category": "gate_core",
+          "baseline": "neutral",
+          "notes": "Standard gate core algorithms."
+        },
+        {
+          "id": "subj-dwm",
+          "name": "Data Warehousing & Mining",
+          "code": "DWM",
+          "category": "gate_core",
+          "baseline": "prior_knowledge",
+          "notes": "Prior knowledge from college coursework."
+        },
+        {
+          "id": "subj-dbms",
+          "name": "DBMS",
+          "code": "DBMS",
+          "category": "gate_core",
+          "baseline": "weak",
+          "notes": "Weak subject. Preferred ~35h crash course over 92h full playlist."
+        },
+        {
+          "id": "subj-aptitude",
+          "name": "General Aptitude",
+          "code": "GA",
+          "category": "gate_general",
+          "baseline": "neutral",
+          "notes": "Marathons only. Hard lock: Cannot be scheduled before 1 Dec 2026."
+        },
+        {
+          "id": "subj-ml-ai",
+          "name": "Machine Learning & AI",
+          "code": "ML_AI",
+          "category": "gate_core",
+          "baseline": "prior_knowledge",
+          "notes": "Previous crash-course completed with some PYQs. Status: lectures_done, NOT mastered."
+        },
+        {
+          "id": "subj-ese-dmm",
+          "name": "Disaster Management (DMM)",
+          "code": "DMM",
+          "category": "ese_only",
+          "baseline": "prior_knowledge",
+          "weightESE": 1,
+          "notes": "IA: 19/20, Needs 61/80 in sem exam for 80 total."
+        },
+        {
+          "id": "subj-ese-dl",
+          "name": "Deep Learning",
+          "code": "DL",
+          "category": "ese_only",
+          "baseline": "prior_knowledge",
+          "weightESE": 2,
+          "notes": "IA: 14/20, Needs 66/80 in sem exam for 80 total."
+        },
+        {
+          "id": "subj-ese-bda",
+          "name": "Big Data Analytics",
+          "code": "BDA",
+          "category": "ese_only",
+          "baseline": "neutral",
+          "weightESE": 4,
+          "notes": "IA: 15/20, Needs 65/80 in sem exam for 80 total. High ESE weight."
+        },
+        {
+          "id": "subj-ese-nlp",
+          "name": "Natural Language Processing",
+          "code": "NLP",
+          "category": "ese_only",
+          "baseline": "prior_knowledge",
+          "weightESE": 2,
+          "notes": "IA: 18/20, Needs 62/80 in sem exam for 80 total."
+        },
+        {
+          "id": "subj-ese-game-theory",
+          "name": "Game Theory",
+          "code": "GT",
+          "category": "ese_only",
+          "baseline": "weak",
+          "weightESE": 5,
+          "notes": "IA: 17/20, Needs 63/80 in sem exam for 80 total. High ESE weight."
+        }
+      ],
+      "courses": [
+        {
+          "id": "course-la",
+          "subjectId": "subj-linear-algebra",
+          "label": "Linear Algebra Playlist",
+          "isCrashCourse": false,
+          "totalLectures": 16,
+          "sourceRuntimeHours": 35,
+          "effectiveMultiplier": 2,
+          "selected": true
+        },
+        {
+          "id": "course-p-stats",
+          "subjectId": "subj-prob-stats",
+          "label": "Probability & Statistics Playlist",
+          "isCrashCourse": false,
+          "totalLectures": 17,
+          "sourceRuntimeHours": 43,
+          "effectiveMultiplier": 2,
+          "selected": true
+        },
+        {
+          "id": "course-calc",
+          "subjectId": "subj-calculus",
+          "label": "Calculus Playlist",
+          "isCrashCourse": false,
+          "totalLectures": 16,
+          "sourceRuntimeHours": 32,
+          "effectiveMultiplier": 2,
+          "selected": true
+        },
+        {
+          "id": "course-py-dsa",
+          "subjectId": "subj-python-dsa",
+          "label": "Python + DSA Playlist",
+          "isCrashCourse": false,
+          "totalLectures": 19,
+          "sourceRuntimeHours": 32,
+          "effectiveMultiplier": 1.5,
+          "selected": true
+        },
+        {
+          "id": "course-algo",
+          "subjectId": "subj-algorithms",
+          "label": "Algorithms Playlist",
+          "isCrashCourse": false,
+          "totalLectures": 17,
+          "sourceRuntimeHours": 36,
+          "effectiveMultiplier": 1.5,
+          "selected": true
+        },
+        {
+          "id": "course-dwm",
+          "subjectId": "subj-dwm",
+          "label": "Data Warehousing & Mining Playlist",
+          "isCrashCourse": false,
+          "totalLectures": 8,
+          "sourceRuntimeHours": 11,
+          "effectiveMultiplier": 1.5,
+          "selected": true
+        },
+        {
+          "id": "course-dbms-crash",
+          "subjectId": "subj-dbms",
+          "label": "DBMS Crash Course (Preferred)",
+          "isCrashCourse": true,
+          "totalLectures": null,
+          "sourceRuntimeHours": 35,
+          "effectiveMultiplier": 1.5,
+          "selected": true,
+          "notes": "Provisional 35h estimate. Selected by default per user preference."
+        },
+        {
+          "id": "course-dbms-full",
+          "subjectId": "subj-dbms",
+          "label": "DBMS Full Playlist (Alternative)",
+          "isCrashCourse": false,
+          "totalLectures": 26,
+          "sourceRuntimeHours": 92,
+          "effectiveMultiplier": 1.5,
+          "selected": false,
+          "notes": "Alternative full 92h course (138 effective hours). Not active when crash course is active."
+        },
+        {
+          "id": "course-aptitude",
+          "subjectId": "subj-aptitude",
+          "label": "General Aptitude Marathons",
+          "isCrashCourse": true,
+          "totalLectures": null,
+          "sourceRuntimeHours": 15,
+          "effectiveMultiplier": 1.5,
+          "selected": true,
+          "notes": "Scheduled strictly starting December 2026."
+        }
+      ],
+      "lectures": [],
+      "tasks": [
+        {
+          "id": "task-la-core",
+          "userId": "test-user-1792566394239-2",
+          "type": "video",
+          "subjectId": "subj-linear-algebra",
+          "title": "Linear Algebra Core Lectures",
+          "estimatedMinutes": 4200,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 2,
+          "why": "Linear Algebra fundamental syllabus",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.297Z",
+          "updatedAt": "2026-10-21T07:06:34.297Z"
+        },
+        {
+          "id": "task-prob-core",
+          "userId": "test-user-1792566394239-2",
+          "type": "video",
+          "subjectId": "subj-prob-stats",
+          "title": "Probability & Statistics Core (PnC Focus)",
+          "estimatedMinutes": 5160,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 1,
+          "why": "Weak subject (Probability & Stats, especially PnC)",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.297Z",
+          "updatedAt": "2026-10-21T07:06:34.297Z"
+        },
+        {
+          "id": "task-calc-core",
+          "userId": "test-user-1792566394239-2",
+          "type": "video",
+          "subjectId": "subj-calculus",
+          "title": "Calculus Core Lectures",
+          "estimatedMinutes": 3840,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 3,
+          "why": "Calculus syllabus coverage",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.297Z",
+          "updatedAt": "2026-10-21T07:06:34.297Z"
+        },
+        {
+          "id": "task-py-core",
+          "userId": "test-user-1792566394239-2",
+          "type": "video",
+          "subjectId": "subj-python-dsa",
+          "title": "Python + DSA Playlist",
+          "estimatedMinutes": 2880,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 2,
+          "why": "Programming & Data Structures",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.297Z",
+          "updatedAt": "2026-10-21T07:06:34.297Z"
+        },
+        {
+          "id": "task-algo-core",
+          "userId": "test-user-1792566394239-2",
+          "type": "video",
+          "subjectId": "subj-algorithms",
+          "title": "Algorithms Playlist",
+          "estimatedMinutes": 3240,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 2,
+          "why": "Algorithms design and complexity",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.297Z",
+          "updatedAt": "2026-10-21T07:06:34.297Z"
+        },
+        {
+          "id": "task-dwm-core",
+          "userId": "test-user-1792566394239-2",
+          "type": "video",
+          "subjectId": "subj-dwm",
+          "title": "Data Warehousing & Mining",
+          "estimatedMinutes": 990,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 3,
+          "why": "DWM topics",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.297Z",
+          "updatedAt": "2026-10-21T07:06:34.297Z"
+        },
+        {
+          "id": "task-dbms-core",
+          "userId": "test-user-1792566394239-2",
+          "type": "video",
+          "subjectId": "subj-dbms",
+          "title": "DBMS Crash Course (Provisional 35h)",
+          "estimatedMinutes": 3150,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 1,
+          "why": "Weak subject (DBMS crash course option)",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.297Z",
+          "updatedAt": "2026-10-21T07:06:34.297Z"
+        },
+        {
+          "id": "task-aptitude-core",
+          "userId": "test-user-1792566394239-2",
+          "type": "video",
+          "subjectId": "subj-aptitude",
+          "title": "General Aptitude Marathons",
+          "estimatedMinutes": 1350,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 3,
+          "why": "General Aptitude (Locked until 1 Dec 2026)",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.297Z",
+          "updatedAt": "2026-10-21T07:06:34.297Z"
+        },
+        {
+          "id": "task-ese-game-theory",
+          "userId": "test-user-1792566394239-2",
+          "type": "ese",
+          "subjectId": "subj-ese-game-theory",
+          "title": "Game Theory ESE Preparation (Highest ESE weight)",
+          "estimatedMinutes": 1800,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 1,
+          "why": "ESE Exam: Game Theory confusing; needs 63/80",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.297Z",
+          "updatedAt": "2026-10-21T07:06:34.297Z"
+        },
+        {
+          "id": "task-ese-bda",
+          "userId": "test-user-1792566394239-2",
+          "type": "ese",
+          "subjectId": "subj-ese-bda",
+          "title": "Big Data Analytics ESE Preparation",
+          "estimatedMinutes": 1500,
+          "completedMinutes": 0,
+          "status": "todo",
+          "pinned": false,
+          "priority": 1,
+          "why": "ESE Exam: BDA new subject; needs 65/80",
+          "prerequisites": [],
+          "createdAt": "2026-10-21T07:06:34.297Z",
+          "updatedAt": "2026-10-21T07:06:34.297Z"
+        }
+      ],
+      "assignments": [],
+      "sessions": [],
+      "questions": [],
+      "attempts": [],
+      "mocks": [
+        {
+          "id": "mock-historical-2026",
+          "userId": "test-user-1792566394239-2",
+          "testNumber": 0,
+          "isHistoricalBaseline": true,
+          "testDate": "2026-02-07",
+          "paperSource": "GATE DA 2026 Official Paper (Baseline attempt with ~2 weeks prep)",
+          "rawScore": 21,
+          "maxMarks": 100,
+          "correctCount": 12,
+          "incorrectCount": 15,
+          "skippedCount": 38,
+          "negativeMarks": 5,
+          "timeSpentMinutes": 180,
+          "analysisCompleted": true,
+          "analysisNotes": "Historical baseline attempt prior to starting dedicated StudyOS prep."
+        }
+      ],
+      "errors": [],
+      "attendance": [
+        {
+          "localDate": "2027-01-11",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-12",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-13",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-14",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-15",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-16",
+          "isWorkingDay": false,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-17",
+          "isWorkingDay": false,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-18",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-19",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-20",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-21",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-22",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-23",
+          "isWorkingDay": false,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-24",
+          "isWorkingDay": false,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-25",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-26",
+          "isWorkingDay": false,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": true,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-27",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-28",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-29",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-30",
+          "isWorkingDay": false,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-01-31",
+          "isWorkingDay": false,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-02-01",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-02-02",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-02-03",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-02-04",
+          "isWorkingDay": true,
+          "plannedAttendance": false,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 450,
+          "userConfirmed": false
+        },
+        {
+          "localDate": "2027-02-05",
+          "isWorkingDay": true,
+          "plannedAttendance": true,
+          "actualAttendance": null,
+          "isPublicHoliday": false,
+          "commuteMinutes": 240,
+          "focusedStudyCapacityMinutes": 105,
+          "userConfirmed": false
+        }
+      ],
+      "dayOverrides": [],
+      "planVersions": []
     }
   }
 }

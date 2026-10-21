@@ -226,17 +226,17 @@ export function AttendanceView({ appState, onRefresh }: AttendanceViewProps) {
             return (
               <div
                 key={rec.localDate}
-                className={`p-3 flex items-center justify-between transition-colors ${
+                className={`p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 transition-colors ${
                   rec.isWorkingDay ? "hover:bg-neutral-50 dark:hover:bg-neutral-900 cursor-pointer" : "opacity-60 bg-neutral-50/50 dark:bg-neutral-900/50"
                 }`}
                 onClick={() => rec.isWorkingDay && handleToggleDayAttendance(rec)}
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-6 font-mono text-[11px] text-muted-light dark:text-muted-dark shrink-0">
+                <div className="flex items-start sm:items-center gap-3 min-w-0">
+                  <div className="w-6 font-mono text-[11px] text-muted-light dark:text-muted-dark shrink-0 pt-0.5 sm:pt-0">
                     {rec.localDate.substring(8)}
                   </div>
                   <div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 flex-wrap">
                       <span className="font-semibold">{formatDisplayDateIST(rec.localDate)}</span>
                       {rec.isPublicHoliday && (
                         <span className="px-1.5 py-0.2 text-[9px] font-mono border border-hairline rounded">
@@ -257,8 +257,8 @@ export function AttendanceView({ appState, onRefresh }: AttendanceViewProps) {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 shrink-0">
-                  <div className="font-mono tabular-nums text-right text-[11px]">
+                <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0 pt-1 sm:pt-0 border-t sm:border-t-0 border-hairline sm:border-transparent">
+                  <div className="font-mono tabular-nums text-left sm:text-right text-[11px]">
                     <div className="font-semibold">{rec.focusedStudyCapacityMinutes} min capacity</div>
                     <div className="text-[10px] text-muted-light dark:text-muted-dark">
                       {rec.isWorkingDay ? (rec.plannedAttendance ? "College Day" : "Self-Study") : "Holiday"}
@@ -268,7 +268,7 @@ export function AttendanceView({ appState, onRefresh }: AttendanceViewProps) {
                   {rec.isWorkingDay && (
                     <button
                       type="button"
-                      className={`px-2.5 py-1 text-[11px] rounded border border-hairline font-medium ${
+                      className={`px-3 py-1 text-[11px] rounded border border-hairline font-medium shrink-0 ${
                         isCollege
                           ? "bg-solid-black text-solid-white dark:bg-solid-black dark:text-background"
                           : "bg-surface-light dark:bg-surface-dark text-muted-light dark:text-muted-dark"

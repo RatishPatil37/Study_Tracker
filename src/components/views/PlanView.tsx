@@ -280,8 +280,8 @@ export function PlanView({ appState, onRefresh }: PlanViewProps) {
       </div>
 
       {/* Date Navigation Bar */}
-      <div className="flex items-center justify-between p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark text-xs">
-        <div className="flex items-center gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark text-xs gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
           <button
             onClick={handlePrevDate}
             className="p-1 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded"
@@ -302,7 +302,7 @@ export function PlanView({ appState, onRefresh }: PlanViewProps) {
           >
             <ChevronRight className="w-4 h-4" />
           </button>
-          <span className="font-semibold tabular-nums ml-2">
+          <span className="font-semibold tabular-nums ml-1 sm:ml-2">
             {viewMode === "day"
               ? formatDisplayDateIST(selectedDate)
               : `${formatDisplayDateIST(weekDates[0])} — ${formatDisplayDateIST(weekDates[6])}`}
@@ -310,14 +310,14 @@ export function PlanView({ appState, onRefresh }: PlanViewProps) {
         </div>
 
         {viewMode === "day" && (
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between sm:justify-end gap-3 pt-1 sm:pt-0 border-t sm:border-t-0 border-hairline sm:border-transparent">
             <span className="text-muted-light dark:text-muted-dark">
               Assigned: <strong className="text-foreground tabular-nums">{assignedMinutes}m</strong> /{" "}
               <strong className="text-foreground tabular-nums">{currentCap?.netAvailableMinutes || 0}m net</strong>
             </span>
             <button
               onClick={() => setOverrideOpen(true)}
-              className="underline hover:no-underline text-muted-light dark:text-muted-dark"
+              className="underline hover:no-underline text-muted-light dark:text-muted-dark shrink-0"
             >
               Override Capacity
             </button>
@@ -603,7 +603,7 @@ export function PlanView({ appState, onRefresh }: PlanViewProps) {
       {/* VIEW: WEEKLY PLANNER */}
       {viewMode === "week" && (
         <div className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-7 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2">
             {weekDates.map((date) => {
               const cap = dayCapacities.find((c) => c.localDate === date);
               const dayAssignments = assignments.filter((a) => a.localDate === date);
@@ -615,7 +615,7 @@ export function PlanView({ appState, onRefresh }: PlanViewProps) {
                 <div
                   key={date}
                   onClick={() => setSelectedDate(date)}
-                  className={`p-2.5 border rounded cursor-pointer transition-colors space-y-2 min-h-[160px] flex flex-col justify-between ${
+                  className={`p-2.5 border rounded cursor-pointer transition-colors space-y-2 min-h-[140px] sm:min-h-[160px] flex flex-col justify-between ${
                     isSelected
                       ? "border-black dark:border-white bg-neutral-50 dark:bg-neutral-900"
                       : "border-hairline bg-background hover:bg-neutral-50 dark:hover:bg-neutral-900"
@@ -662,8 +662,8 @@ export function PlanView({ appState, onRefresh }: PlanViewProps) {
 
       {/* INTERACTIVE REPLANNING MODAL (Section 3 & 4.3) */}
       {replanning && planPreviewData && (
-        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
-          <div className="max-w-2xl w-full bg-background border border-hairline rounded-lg shadow-xl p-5 space-y-4 max-h-[90vh] overflow-y-auto text-xs">
+        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-2.5 sm:p-4 backdrop-blur-sm">
+          <div className="max-w-2xl w-full bg-background border border-hairline rounded-lg shadow-xl p-4 sm:p-5 space-y-4 max-h-[92vh] overflow-y-auto text-xs">
             <div className="flex items-center justify-between border-b border-hairline pb-3">
               <div>
                 <h2 className="text-sm font-bold uppercase tracking-wider">

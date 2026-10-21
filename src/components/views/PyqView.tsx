@@ -282,15 +282,15 @@ export function PyqView({ appState, onRefresh }: PyqViewProps) {
         ) : (
           <div className="divide-y divide-hairline text-xs">
             {filteredAttempts.map((attempt: QuestionAttempt) => (
-              <div key={attempt.id} className="p-3 flex items-center justify-between hover:bg-neutral-50 dark:hover:bg-neutral-900">
-                <div className="flex items-center gap-3">
+              <div key={attempt.id} className="p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-900">
+                <div className="flex items-start sm:items-center gap-3 min-w-0">
                   {attempt.result === "correct" ? (
-                    <CheckCircle2 className="w-4 h-4 text-black dark:text-white shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-black dark:text-white shrink-0 mt-0.5 sm:mt-0" />
                   ) : (
-                    <XCircle className="w-4 h-4 text-muted-light dark:text-muted-dark shrink-0" />
+                    <XCircle className="w-4 h-4 text-muted-light dark:text-muted-dark shrink-0 mt-0.5 sm:mt-0" />
                   )}
-                  <div>
-                    <div className="flex items-center gap-2">
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
                       <span className="font-semibold">{attempt.stableQuestionId}</span>
                       <span className="px-1.5 py-0.2 text-[9px] font-mono border border-hairline rounded uppercase">
                         {attempt.result}
@@ -309,7 +309,7 @@ export function PyqView({ appState, onRefresh }: PyqViewProps) {
                   </div>
                 </div>
 
-                <div className="text-right text-[11px] shrink-0 font-mono tabular-nums text-muted-light dark:text-muted-dark">
+                <div className="text-left sm:text-right text-[11px] shrink-0 font-mono tabular-nums text-muted-light dark:text-muted-dark pt-1 sm:pt-0 border-t sm:border-t-0 border-hairline sm:border-transparent">
                   <div>{attempt.timeTakenSeconds}s &bull; Confidence: {attempt.confidence}</div>
                   <div className="text-[10px]">{new Date(attempt.attemptedAt).toLocaleDateString()}</div>
                 </div>

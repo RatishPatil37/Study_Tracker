@@ -145,7 +145,7 @@ export function SubjectsView({ appState, onRefresh }: SubjectsViewProps) {
             <p className="text-muted-light dark:text-muted-dark text-[11px]">
               User preference: ~35h crash course (52.5 effective hours) to avoid 138 effective hours of the 92h full course.
             </p>
-            <div className="flex items-center gap-3 pt-1">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 pt-1">
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="radio"
@@ -156,7 +156,7 @@ export function SubjectsView({ appState, onRefresh }: SubjectsViewProps) {
                 />
                 <span>35h Crash Course (Preferred, 52.5h effective)</span>
               </label>
-              <label className="flex items-center gap-2 cursor-pointer ml-4">
+              <label className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="radio"
                   name="dbms_variant"
@@ -182,7 +182,7 @@ export function SubjectsView({ appState, onRefresh }: SubjectsViewProps) {
                 return (
                   <div key={course.id} className="p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-neutral-50 dark:hover:bg-neutral-900">
                     <div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <span className="font-semibold">{course.label}</span>
                         {isWeak && (
                           <span className="px-1.5 py-0.2 text-[9px] font-mono border border-hairline rounded">
@@ -200,7 +200,7 @@ export function SubjectsView({ appState, onRefresh }: SubjectsViewProps) {
                       </div>
                     </div>
 
-                    <div className="text-right shrink-0">
+                    <div className="text-left sm:text-right shrink-0 pt-1 sm:pt-0 border-t sm:border-t-0 border-hairline sm:border-transparent">
                       <div className="font-mono tabular-nums font-semibold">
                         {course.sourceRuntimeHours}h video &rarr; {effectiveHours}h elapsed
                       </div>
