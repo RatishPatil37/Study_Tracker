@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
     const userId = request.headers.get("x-user-id") || "default-user";
     const repo = new StudyOSRepository(userId);
     const body = await request.json();
-    const { prompt, model = "gemini-3.8-flash" } = body;
+    const { prompt, model = process.env.GEMINI_MODEL || "gemini-2.5-flash" } = body;
 
     const apiKey = process.env.GEMINI_API_KEY || request.headers.get("x-gemini-api-key");
     if (!apiKey || apiKey === "your-gemini-api-key-here") {
@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Call Google Gemini API (Interactions/GenerateContent)
-    const targetModel = model || "gemini-3.8-flash";
+    const targetModel = model || process.env.GEMINI_MODEL || "gemini-2.5-flash";
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${targetModel}:generateContent?key=${apiKey}`;
 
     const contextTasks = repo.getTasks().slice(0, 10).map((t) => `${t.title} (${t.status}, ${t.estimatedMinutes}m, prio ${t.priority})`).join("\n");

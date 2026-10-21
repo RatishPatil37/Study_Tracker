@@ -24,7 +24,7 @@ export function SettingsView({ appState, onRefresh }: SettingsViewProps) {
 
   // Gemini assistant state
   const [aiQuery, setAiQuery] = useState("");
-  const [aiModel, setAiModel] = useState("gemini-3.8-flash");
+  const [aiModel, setAiModel] = useState("gemini-2.5-flash");
   const [aiLoading, setAiLoading] = useState(false);
   const [aiResponse, setAiResponse] = useState<any>(null);
 
@@ -162,9 +162,9 @@ export function SettingsView({ appState, onRefresh }: SettingsViewProps) {
                 onChange={(e) => setAiModel(e.target.value)}
                 className="w-full p-2.5 border border-hairline rounded bg-transparent text-xs font-mono"
               >
-                <option value="gemini-3.8-flash" className="bg-background">gemini-3.8-flash (Recommended)</option>
-                <option value="gemini-2.5-flash" className="bg-background">gemini-2.5-flash</option>
+                <option value="gemini-2.5-flash" className="bg-background">gemini-2.5-flash (Recommended)</option>
                 <option value="gemini-2.0-flash" className="bg-background">gemini-2.0-flash</option>
+                <option value="gemini-1.5-flash" className="bg-background">gemini-1.5-flash</option>
               </select>
             </div>
           </div>
