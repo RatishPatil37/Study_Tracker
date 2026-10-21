@@ -103,20 +103,20 @@ export function TodayView({ appState, onRefresh, onNavigate }: TodayViewProps) {
         <div className="flex items-center gap-2">
           <button
             onClick={() => onNavigate("plan")}
-            className="flex items-center gap-1.5 px-3 py-1.5 border border-hairline rounded text-xs hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 border border-hairline rounded text-xs hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors shadow-2xs"
           >
-            <Calendar className="w-3.5 h-3.5" />
+            <Calendar className="w-3.5 h-3.5 text-blue-500" />
             <span>Open Planner</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5 text-muted-light dark:text-muted-dark" />
           </button>
         </div>
       </div>
 
       {/* Critical Overload / Infeasibility Warning Banner (Section 4.1) */}
       {feasibility?.status === "infeasible" && (
-        <div className="p-3.5 bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded text-xs space-y-1">
-          <div className="flex items-center gap-2 font-semibold">
-            <AlertTriangle className="w-4 h-4 text-black dark:text-white shrink-0" />
+        <div className="p-3.5 bg-rose-50/50 dark:bg-rose-950/20 border border-rose-200 dark:border-rose-900/60 rounded text-xs space-y-1">
+          <div className="flex items-center gap-2 font-semibold text-rose-700 dark:text-rose-300">
+            <AlertTriangle className="w-4 h-4 text-rose-500 shrink-0" />
             <span>Study Capacity Infeasible: Mathematical Time Deficit</span>
           </div>
           <p className="text-muted-light dark:text-muted-dark pl-6 leading-relaxed">
@@ -131,16 +131,16 @@ export function TodayView({ appState, onRefresh, onNavigate }: TodayViewProps) {
 
       {/* Overdue Items Alert */}
       {overdueTasks.length > 0 && (
-        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark flex items-center justify-between text-xs">
-          <div className="flex items-center gap-2">
-            <AlertCircle className="w-4 h-4 text-black dark:text-white" />
+        <div className="p-3 border border-amber-200 dark:border-amber-900/60 rounded bg-amber-50/40 dark:bg-amber-950/20 flex items-center justify-between text-xs">
+          <div className="flex items-center gap-2 text-amber-800 dark:text-amber-300">
+            <AlertCircle className="w-4 h-4 text-amber-500 shrink-0" />
             <span>
               <strong className="font-semibold">{overdueTasks.length} task(s)</strong> past due date. Yesterday&apos;s missed work is never silently dropped.
             </span>
           </div>
           <button
             onClick={() => onNavigate("plan")}
-            className="font-medium underline hover:no-underline ml-4"
+            className="font-medium underline hover:no-underline ml-4 text-amber-700 dark:text-amber-400 shrink-0"
           >
             Review in Plan
           </button>
@@ -149,9 +149,10 @@ export function TodayView({ appState, onRefresh, onNavigate }: TodayViewProps) {
 
       {/* Key Metric Blocks (Restrained, high information density) */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-          <div className="text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-            Today&apos;s Net Capacity
+        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1 shadow-2xs">
+          <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+            <span>Today&apos;s Net Capacity</span>
+            <Clock className="w-3.5 h-3.5 text-blue-500" />
           </div>
           <div className="text-xl font-bold tabular-nums">
             {Number((todayCap?.netAvailableMinutes / 60).toFixed(1))}h
@@ -161,9 +162,10 @@ export function TodayView({ appState, onRefresh, onNavigate }: TodayViewProps) {
           </div>
         </div>
 
-        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-          <div className="text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-            Required Daily Avg
+        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1 shadow-2xs">
+          <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+            <span>Required Daily Avg</span>
+            <Clock className="w-3.5 h-3.5 text-amber-500" />
           </div>
           <div className="text-xl font-bold tabular-nums">
             {feasibility?.requiredAverageHoursPerAvailableDay || 0}h
@@ -173,9 +175,10 @@ export function TodayView({ appState, onRefresh, onNavigate }: TodayViewProps) {
           </div>
         </div>
 
-        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-          <div className="text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-            Core Mocks Target
+        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1 shadow-2xs">
+          <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+            <span>Core Mocks Target</span>
+            <Calendar className="w-3.5 h-3.5 text-rose-500" />
           </div>
           <div className="text-xl font-bold tabular-nums">
             {coreMocksCompleted} / 12
@@ -185,9 +188,16 @@ export function TodayView({ appState, onRefresh, onNavigate }: TodayViewProps) {
           </div>
         </div>
 
-        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-          <div className="text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-            Schedule Status
+        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1 shadow-2xs">
+          <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+            <span>Schedule Status</span>
+            {feasibility?.status === "infeasible" ? (
+              <AlertTriangle className="w-3.5 h-3.5 text-rose-500" />
+            ) : feasibility?.status === "at_risk" ? (
+              <AlertCircle className="w-3.5 h-3.5 text-amber-500" />
+            ) : (
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+            )}
           </div>
           <div className="text-xl font-bold uppercase tracking-wide">
             {feasibility?.status === "infeasible"
@@ -241,33 +251,33 @@ export function TodayView({ appState, onRefresh, onNavigate }: TodayViewProps) {
                   <div className="flex items-center gap-3 min-w-0">
                     <button
                       onClick={() => handleToggleTaskDone(task)}
-                      className={`w-4 h-4 rounded border flex items-center justify-center shrink-0 ${
+                      className={`w-4 h-4 rounded border flex items-center justify-center shrink-0 transition-colors ${
                         isDone
-                          ? "bg-black text-white dark:bg-white dark:text-black border-transparent"
-                          : "border-neutral-400 dark:border-neutral-600 hover:border-black dark:hover:border-white"
+                          ? "bg-emerald-600 text-white dark:bg-emerald-500 dark:text-black border-transparent"
+                          : "border-neutral-400 dark:border-neutral-600 hover:border-emerald-500 dark:hover:border-emerald-400"
                       }`}
                       title={isDone ? "Mark incomplete" : "Mark done"}
                     >
-                      {isDone && <CheckCircle2 className="w-3.5 h-3.5" />}
+                      {isDone && <CheckCircle2 className="w-3.5 h-3.5 text-white dark:text-black stroke-[3]" />}
                     </button>
                     <div className="min-w-0">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <span className={`text-xs font-medium truncate ${isDone ? "line-through text-muted-light dark:text-muted-dark" : ""}`}>
                           {task.title}
                         </span>
                         {isWeak && (
-                          <span className="px-1.5 py-0.2 text-[9px] font-mono border border-neutral-300 dark:border-neutral-700 rounded">
+                          <span className="px-1.5 py-0.2 text-[9px] font-mono border border-rose-200 dark:border-rose-900 bg-rose-50/60 dark:bg-rose-950/30 text-rose-700 dark:text-rose-300 rounded">
                             Weak Subject
                           </span>
                         )}
                         {task.pinned && (
-                          <span className="px-1.5 py-0.2 text-[9px] font-mono bg-neutral-200 dark:bg-neutral-800 rounded">
+                          <span className="px-1.5 py-0.2 text-[9px] font-mono border border-blue-200 dark:border-blue-900 bg-blue-50/60 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 rounded">
                             Pinned
                           </span>
                         )}
                       </div>
                       <div className="flex items-center gap-3 text-[10px] text-muted-light dark:text-muted-dark mt-0.5">
-                        <span className="tabular-nums">
+                        <span className="tabular-nums font-mono">
                           {task.completedMinutes} / {task.estimatedMinutes} min
                         </span>
                         <span>&bull;</span>
@@ -286,11 +296,11 @@ export function TodayView({ appState, onRefresh, onNavigate }: TodayViewProps) {
                     {!isDone && (
                       <button
                         onClick={() => handleStartTask(task.id)}
-                        className="p-1.5 border border-hairline rounded hover:bg-neutral-200 dark:hover:bg-neutral-800 text-xs flex items-center gap-1"
+                        className="p-1.5 border border-hairline rounded hover:bg-emerald-50 dark:hover:bg-emerald-950/30 text-xs flex items-center gap-1.5 transition-colors text-emerald-700 dark:text-emerald-300 shadow-2xs"
                         title="Start timer for this task"
                       >
-                        <Play className="w-3 h-3 fill-current" />
-                        <span className="hidden sm:inline text-[11px]">Study</span>
+                        <Play className="w-3 h-3 fill-emerald-600 text-emerald-600 dark:fill-emerald-400 dark:text-emerald-400" />
+                        <span className="hidden sm:inline text-[11px] font-medium">Study</span>
                       </button>
                     )}
                   </div>
@@ -302,7 +312,7 @@ export function TodayView({ appState, onRefresh, onNavigate }: TodayViewProps) {
       </div>
 
       {/* Week Allocation Overview */}
-      <div className="border border-hairline rounded p-4 bg-background space-y-3">
+      <div className="border border-hairline rounded p-4 bg-background space-y-3 shadow-2xs">
         <div className="flex items-center justify-between pb-2 border-b border-hairline">
           <div>
             <h2 className="text-xs font-bold uppercase tracking-wider">Upcoming Phase Timeline</h2>
@@ -312,7 +322,7 @@ export function TodayView({ appState, onRefresh, onNavigate }: TodayViewProps) {
           </div>
           <button
             onClick={() => onNavigate("attendance")}
-            className="text-xs font-medium hover:underline flex items-center gap-1"
+            className="text-xs font-medium hover:underline flex items-center gap-1 text-teal-600 dark:text-teal-400"
           >
             <span>January Attendance</span>
             <ArrowRight className="w-3 h-3" />
@@ -321,25 +331,37 @@ export function TodayView({ appState, onRefresh, onNavigate }: TodayViewProps) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 text-xs">
           <div className="p-2.5 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-            <div className="font-semibold">21–22 Oct</div>
+            <div className="flex items-center gap-1.5 font-semibold">
+              <span className="w-2 h-2 rounded-full bg-blue-500" />
+              <span>21–22 Oct</span>
+            </div>
             <div className="text-muted-light dark:text-muted-dark text-[11px]">
               LAEP Presentation focus. Mocks locked.
             </div>
           </div>
           <div className="p-2.5 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-            <div className="font-semibold">28 Oct</div>
+            <div className="flex items-center gap-1.5 font-semibold">
+              <span className="w-2 h-2 rounded-full bg-amber-500" />
+              <span>28 Oct</span>
+            </div>
             <div className="text-muted-light dark:text-muted-dark text-[11px]">
               Project Freeze. SmartSight deadline check.
             </div>
           </div>
           <div className="p-2.5 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-            <div className="font-semibold">16–27 Nov</div>
+            <div className="flex items-center gap-1.5 font-semibold">
+              <span className="w-2 h-2 rounded-full bg-rose-500" />
+              <span>16–27 Nov</span>
+            </div>
             <div className="text-muted-light dark:text-muted-dark text-[11px]">
               End-Sem Exams (GATE=0m). Exclusively ESE.
             </div>
           </div>
           <div className="p-2.5 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-            <div className="font-semibold">28 Nov–10 Jan</div>
+            <div className="flex items-center gap-1.5 font-semibold">
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+              <span>28 Nov–10 Jan</span>
+            </div>
             <div className="text-muted-light dark:text-muted-dark text-[11px]">
               Holiday Mode (~7.5h daily focused capacity).
             </div>

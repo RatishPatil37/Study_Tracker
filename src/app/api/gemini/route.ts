@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import dns from "dns";
 import { StudyOSRepository } from "@/data/storage";
+
+try {
+  dns.setDefaultResultOrder("ipv4first");
+} catch {}
 
 const GeminiProposalSchema = z.object({
   analysis: z.string(),
@@ -20,7 +25,7 @@ export async function POST(request: NextRequest) {
     const userId = request.headers.get("x-user-id") || "default-user";
     const repo = new StudyOSRepository(userId);
     const body = await request.json();
-    const { prompt, model = process.env.GEMINI_MODEL || "gemini-2.5-flash" } = body;
+    const { prompt, model = process.env.GEMINI_MODEL || "gemini-3.8-flash" } = body;
 
     const apiKey = process.env.GEMINI_API_KEY || request.headers.get("x-gemini-api-key");
     if (!apiKey || apiKey === "your-gemini-api-key-here") {
@@ -97,9 +102,9 @@ Respond ONLY with a valid JSON object matching this schema:
       body: JSON.stringify(requestPayload),
     });
 
-    // If model not found (e.g. 3.8 preview vs 2.5), auto-fallback to gemini-2.5-flash
-    if (response.status === 404 && targetModel !== "gemini-2.5-flash") {
-      targetModel = "gemini-2.5-flash";
+    // If primary model fails (e.g. 503 high demand, 404, or 429), auto-fallback to gemini-3.5-flash-lite
+    if (!response.ok && targetModel !== "gemini-3.5-flash-lite") {
+      targetModel = "gemini-3.5-flash-lite";
       url = `https://generativelanguage.googleapis.com/v1beta/models/${targetModel}:generateContent?key=${apiKey}`;
       response = await fetch(url, {
         method: "POST",

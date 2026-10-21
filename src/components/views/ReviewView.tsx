@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { FileText, Plus, Check, RotateCcw, AlertTriangle, Layers, Calendar } from "lucide-react";
+import { FileText, Plus, Check, RotateCcw, AlertTriangle, Layers, Calendar, Clock, CheckCircle2 } from "lucide-react";
 import { AppStateData, recordErrorItem, reviewErrorItem } from "@/lib/api";
 import { ErrorCategoryRecord } from "@/domain/types";
 import { formatDisplayDateIST } from "@/domain/dates";
@@ -110,9 +110,9 @@ export function ReviewView({ appState, onRefresh }: ReviewViewProps) {
           {activeTab === "notebook" && (
             <button
               onClick={() => setOpenAddModal(true)}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-neutral-900 text-white dark:bg-white dark:text-black rounded text-xs font-medium hover:opacity-90"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-neutral-900 text-white dark:bg-white dark:text-black rounded text-xs font-medium hover:opacity-90 shadow-2xs"
             >
-              <Plus className="w-3.5 h-3.5" />
+              <Plus className="w-3.5 h-3.5 text-indigo-400" />
               <span>Log Mistake</span>
             </button>
           )}
@@ -123,35 +123,39 @@ export function ReviewView({ appState, onRefresh }: ReviewViewProps) {
         <div className="space-y-6">
           {/* Metrics */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-            <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-              <div className="text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-                Due Reviews Today
+            <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1 shadow-2xs">
+              <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+                <span>Due Reviews Today</span>
+                <AlertTriangle className="w-3.5 h-3.5 text-rose-500" />
               </div>
-              <div className="text-xl font-bold tabular-nums">{dueErrors.length}</div>
+              <div className="text-xl font-bold tabular-nums font-mono text-rose-600 dark:text-rose-400">{dueErrors.length}</div>
               <div className="text-[10px] text-muted-light dark:text-muted-dark">Awaiting recall review</div>
             </div>
 
-            <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-              <div className="text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-                Scheduled Next
+            <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1 shadow-2xs">
+              <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+                <span>Scheduled Next</span>
+                <Clock className="w-3.5 h-3.5 text-blue-500" />
               </div>
-              <div className="text-xl font-bold tabular-nums">{upcomingErrors.length}</div>
+              <div className="text-xl font-bold tabular-nums font-mono">{upcomingErrors.length}</div>
               <div className="text-[10px] text-muted-light dark:text-muted-dark">In 3/7/14/30 day queue</div>
             </div>
 
-            <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-              <div className="text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-                Mastered Mistakes
+            <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1 shadow-2xs">
+              <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+                <span>Mastered Mistakes</span>
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
               </div>
-              <div className="text-xl font-bold tabular-nums">{masteredErrors.length}</div>
+              <div className="text-xl font-bold tabular-nums font-mono text-emerald-600 dark:text-emerald-400">{masteredErrors.length}</div>
               <div className="text-[10px] text-muted-light dark:text-muted-dark">Completed 30-day cycle</div>
             </div>
 
-            <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-              <div className="text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-                Total Mistakes Tracked
+            <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1 shadow-2xs">
+              <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+                <span>Total Tracked</span>
+                <Layers className="w-3.5 h-3.5 text-indigo-500" />
               </div>
-              <div className="text-xl font-bold tabular-nums">{errors.length}</div>
+              <div className="text-xl font-bold tabular-nums font-mono">{errors.length}</div>
               <div className="text-[10px] text-muted-light dark:text-muted-dark">Categorized errors</div>
             </div>
           </div>
@@ -245,43 +249,57 @@ export function ReviewView({ appState, onRefresh }: ReviewViewProps) {
               </div>
             ) : (
               <div className="divide-y divide-hairline text-xs">
-                {dueErrors.map((item) => (
-                  <div key={item.id} className="p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-neutral-50 dark:hover:bg-neutral-900">
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <span className="font-semibold">{item.source}</span>
-                        <span className="px-1.5 py-0.2 text-[9px] font-mono border border-hairline rounded uppercase">
-                          {item.errorCategory}
-                        </span>
-                        <span className="text-[10px] text-muted-light dark:text-muted-dark tabular-nums font-mono">
-                          Current interval: {item.revisitIntervalDays}d &bull; Attempt #{item.attemptCount}
-                        </span>
-                      </div>
-                      <div className="text-[11px] text-foreground leading-relaxed">
-                        {item.correctionNotes}
-                      </div>
-                    </div>
+                {dueErrors.map((item) => {
+                  const cat = item.errorCategory;
+                  const catColor =
+                    cat === "conceptual"
+                      ? "border-rose-200 dark:border-rose-900 bg-rose-50/60 dark:bg-rose-950/30 text-rose-700 dark:text-rose-300"
+                      : cat === "calculation"
+                      ? "border-amber-200 dark:border-amber-900 bg-amber-50/60 dark:bg-amber-950/30 text-amber-700 dark:text-amber-300"
+                      : cat === "misread"
+                      ? "border-purple-200 dark:border-purple-900 bg-purple-50/60 dark:bg-purple-950/30 text-purple-700 dark:text-purple-300"
+                      : cat === "time"
+                      ? "border-blue-200 dark:border-blue-900 bg-blue-50/60 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300"
+                      : "border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300";
 
-                    <div className="flex items-center gap-2 shrink-0 self-end sm:self-center">
-                      <button
-                        onClick={() => handleReview(item.id, false)}
-                        className="flex items-center gap-1 px-2.5 py-1.5 border border-hairline rounded hover:bg-neutral-200 dark:hover:bg-neutral-800 text-[11px]"
-                        title="Failed recall: Reset to 1 day interval"
-                      >
-                        <RotateCcw className="w-3 h-3 text-red-600 dark:text-red-400" />
-                        <span>Fail (1d)</span>
-                      </button>
-                      <button
-                        onClick={() => handleReview(item.id, true)}
-                        className="flex items-center gap-1 px-3 py-1.5 bg-neutral-900 text-white dark:bg-white dark:text-black rounded text-[11px] font-medium hover:opacity-90"
-                        title="Passed recall: Advance to next interval"
-                      >
-                        <Check className="w-3 h-3" />
-                        <span>Pass</span>
-                      </button>
+                  return (
+                    <div key={item.id} className="p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors">
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="font-semibold">{item.source}</span>
+                          <span className={`px-1.5 py-0.2 text-[9px] font-mono border rounded uppercase font-semibold ${catColor}`}>
+                            {item.errorCategory}
+                          </span>
+                          <span className="text-[10px] text-muted-light dark:text-muted-dark tabular-nums font-mono">
+                            Interval: {item.revisitIntervalDays}d &bull; Attempt #{item.attemptCount}
+                          </span>
+                        </div>
+                        <div className="text-[11px] text-foreground leading-relaxed">
+                          {item.correctionNotes}
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-2 shrink-0 self-end sm:self-center">
+                        <button
+                          onClick={() => handleReview(item.id, false)}
+                          className="flex items-center gap-1 px-2.5 py-1.5 border border-rose-200 dark:border-rose-900/60 rounded hover:bg-rose-50 dark:hover:bg-rose-950/30 text-[11px] text-rose-600 dark:text-rose-400 font-medium transition-colors shadow-2xs"
+                          title="Failed recall: Reset to 1 day interval"
+                        >
+                          <RotateCcw className="w-3 h-3 text-rose-500" />
+                          <span>Fail (1d)</span>
+                        </button>
+                        <button
+                          onClick={() => handleReview(item.id, true)}
+                          className="flex items-center gap-1 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white dark:bg-emerald-500 dark:text-black rounded text-[11px] font-medium shadow-2xs transition-all"
+                          title="Passed recall: Advance to next interval"
+                        >
+                          <Check className="w-3 h-3 stroke-[2.5]" />
+                          <span>Pass</span>
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </div>

@@ -6,6 +6,7 @@
 
 import fs from "fs";
 import path from "path";
+import os from "os";
 import {
   AttendanceDayRecord,
   DayCapacity,
@@ -22,8 +23,19 @@ import {
 import { SEED_COURSE_VARIANTS, SEED_SUBJECTS } from "../domain/workload";
 import { computeDayCapacity, deriveJanuaryAttendanceGrid } from "../domain/calendar";
 import { generateDateRangeIST } from "../domain/dates";
+import {
+  ensureSupabaseBootstrapped,
+  syncTaskToSupabase,
+  deleteTaskFromSupabase,
+  syncMockToSupabase,
+  syncAttendanceToSupabase,
+  syncErrorToSupabase,
+  syncDayOverrideToSupabase,
+} from "./supabaseSync";
 
-const DATA_DIR = path.resolve(process.cwd(), "data");
+const DATA_DIR = process.env.VERCEL
+  ? path.join(os.tmpdir(), "studyos-data")
+  : path.resolve(process.cwd(), "data");
 const STORE_FILE = path.join(DATA_DIR, "studyos-store.json");
 
 export interface UserDatabaseStore {
@@ -85,8 +97,12 @@ interface RootStore {
 let cachedStore: RootStore | null = null;
 
 function ensureDataDir(): void {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
+  try {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+  } catch {
+    // Graceful fallback for read-only serverless filesystems
   }
 }
 
@@ -95,14 +111,14 @@ function loadStore(): RootStore {
     return cachedStore;
   }
   ensureDataDir();
-  if (fs.existsSync(STORE_FILE)) {
-    try {
+  try {
+    if (fs.existsSync(STORE_FILE)) {
       const content = fs.readFileSync(STORE_FILE, "utf-8");
       cachedStore = JSON.parse(content);
       return cachedStore!;
-    } catch {
-      // Corrupted file, fallback to empty
     }
+  } catch {
+    // Corrupted file or restricted permissions, fallback to empty
   }
   cachedStore = { users: {} };
   saveStore(cachedStore);
@@ -110,9 +126,13 @@ function loadStore(): RootStore {
 }
 
 function saveStore(store: RootStore): void {
-  ensureDataDir();
   cachedStore = store;
-  fs.writeFileSync(STORE_FILE, JSON.stringify(store, null, 2), "utf-8");
+  try {
+    ensureDataDir();
+    fs.writeFileSync(STORE_FILE, JSON.stringify(store, null, 2), "utf-8");
+  } catch {
+    // Gracefully persist in-memory on serverless without throwing EROFS
+  }
 }
 
 /**
@@ -357,6 +377,7 @@ export class StudyOSRepository {
 
   constructor(userId: string = "default-user") {
     this.userId = userId;
+    ensureSupabaseBootstrapped().catch(() => {});
   }
 
   private getUserStore(): UserDatabaseStore {
@@ -430,6 +451,7 @@ export class StudyOSRepository {
     this.mutateUserStore((s) => {
       s.tasks.push(newTask);
     });
+    syncTaskToSupabase(newTask).catch(() => {});
     return newTask;
   }
 
@@ -449,14 +471,17 @@ export class StudyOSRepository {
     if (!updated) {
       throw new Error(`Task with id ${taskId} not found.`);
     }
+    syncTaskToSupabase(updated).catch(() => {});
     return updated;
   }
 
   deleteTask(taskId: string): void {
+    const existing = this.getUserStore().tasks.find((t) => t.id === taskId);
     this.mutateUserStore((s) => {
       s.tasks = s.tasks.filter((t) => t.id !== taskId);
       s.assignments = s.assignments.filter((a) => a.taskId !== taskId);
     });
+    deleteTaskFromSupabase(taskId, existing?.title).catch(() => {});
   }
 
   // --- Schedule Assignments & Plan Versions ---
@@ -616,6 +641,7 @@ export class StudyOSRepository {
     this.mutateUserStore((s) => {
       s.mocks.push(newMock);
     });
+    syncMockToSupabase(newMock).catch(() => {});
 
     return newMock;
   }
@@ -659,6 +685,7 @@ export class StudyOSRepository {
     this.mutateUserStore((s) => {
       s.errors.push(newError);
     });
+    syncErrorToSupabase(newError).catch(() => {});
 
     return newError;
   }
@@ -697,6 +724,7 @@ export class StudyOSRepository {
     if (!updated) {
       throw new Error(`Error item ${errorId} not found.`);
     }
+    syncErrorToSupabase(updated).catch(() => {});
     return updated;
   }
 
@@ -706,12 +734,17 @@ export class StudyOSRepository {
   }
 
   updateAttendanceRecord(date: string, updates: Partial<AttendanceDayRecord>): void {
+    let updatedRecord: AttendanceDayRecord | undefined;
     this.mutateUserStore((s) => {
       const idx = s.attendance.findIndex((a) => a.localDate === date);
       if (idx !== -1) {
         s.attendance[idx] = { ...s.attendance[idx], ...updates };
+        updatedRecord = s.attendance[idx];
       }
     });
+    if (updatedRecord) {
+      syncAttendanceToSupabase(updatedRecord).catch(() => {});
+    }
   }
 
   // --- Day Overrides ---
@@ -728,6 +761,7 @@ export class StudyOSRepository {
         s.dayOverrides.push({ localDate, minutes, reason });
       }
     });
+    syncDayOverrideToSupabase({ localDate, minutes, reason }).catch(() => {});
   }
 
   // --- Backup & Export ---

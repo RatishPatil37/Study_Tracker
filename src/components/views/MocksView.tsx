@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { BookOpen, Plus, AlertCircle, CheckCircle2, TrendingUp } from "lucide-react";
+import { BookOpen, Plus, AlertCircle, CheckCircle2, TrendingUp, Clock } from "lucide-react";
 import { AppStateData, recordMockTest } from "@/lib/api";
 import { MockTestRecord } from "@/domain/types";
 import { formatDisplayDateIST } from "@/domain/dates";
@@ -88,62 +88,66 @@ export function MocksView({ appState, onRefresh }: MocksViewProps) {
 
         <button
           onClick={() => setOpenModal(true)}
-          className="flex items-center gap-1.5 px-3 py-1.5 bg-neutral-900 text-white dark:bg-white dark:text-black rounded text-xs font-medium hover:opacity-90 self-start sm:self-center"
+          className="flex items-center gap-1.5 px-3 py-1.5 bg-neutral-900 text-white dark:bg-white dark:text-black rounded text-xs font-medium hover:opacity-90 self-start sm:self-center shadow-2xs"
         >
-          <Plus className="w-3.5 h-3.5" />
+          <Plus className="w-3.5 h-3.5 text-rose-400" />
           <span>Record Mock Result</span>
         </button>
       </div>
 
       {/* Metrics Row */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-          <div className="text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-            Core Mocks Taken
+        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1 shadow-2xs">
+          <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+            <span>Core Mocks Taken</span>
+            <BookOpen className="w-3.5 h-3.5 text-rose-500" />
           </div>
-          <div className="text-xl font-bold tabular-nums">
+          <div className="text-xl font-bold tabular-nums font-mono">
             {currentMocks.length} / 12
           </div>
           <div className="text-[10px] text-muted-light dark:text-muted-dark">Target: 12 mandatory</div>
         </div>
 
-        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-          <div className="text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-            Rolling Last-3 Average
+        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1 shadow-2xs">
+          <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+            <span>Rolling Last-3 Avg</span>
+            <TrendingUp className="w-3.5 h-3.5 text-blue-500" />
           </div>
-          <div className="text-xl font-bold tabular-nums">
+          <div className="text-xl font-bold tabular-nums font-mono">
             {rollingAverage !== null ? `${rollingAverage} / 100` : "Not Yet Assessed"}
           </div>
           <div className="text-[10px] text-muted-light dark:text-muted-dark">Recent calibrated pace</div>
         </div>
 
-        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-          <div className="text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-            Historical Baseline
+        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1 shadow-2xs">
+          <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+            <span>Historical Baseline</span>
+            <AlertCircle className="w-3.5 h-3.5 text-amber-500" />
           </div>
-          <div className="text-xl font-bold tabular-nums font-mono">
+          <div className="text-xl font-bold tabular-nums font-mono text-amber-700 dark:text-amber-400">
             {historicalBaseline ? `${historicalBaseline.rawScore} / 100` : "21 / 100"}
           </div>
           <div className="text-[10px] text-muted-light dark:text-muted-dark">GATE DA 2026 attempt</div>
         </div>
 
-        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-          <div className="text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-            Target Goal
+        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1 shadow-2xs">
+          <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+            <span>Target Goal</span>
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
           </div>
-          <div className="text-xl font-bold tabular-nums">80+ Marks</div>
+          <div className="text-xl font-bold tabular-nums font-mono text-emerald-700 dark:text-emerald-400">80+ Marks</div>
           <div className="text-[10px] text-muted-light dark:text-muted-dark">Aspirational AIR &lt;100</div>
         </div>
       </div>
 
       {/* Historical Baseline Card (Explicitly Preserved Separate - Section 4.6) */}
-      <div className="p-4 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-2 text-xs">
+      <div className="p-4 border border-amber-200 dark:border-amber-900/60 rounded bg-amber-50/40 dark:bg-amber-950/20 space-y-2 text-xs shadow-2xs">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 font-semibold">
-            <span className="w-2 h-2 rounded-full bg-neutral-400" />
+          <div className="flex items-center gap-2 font-semibold text-amber-800 dark:text-amber-300">
+            <span className="w-2 h-2 rounded-full bg-amber-500" />
             <span>Preserved Baseline: GATE DA 2026 Attempt (Score: 21.0 / 100)</span>
           </div>
-          <span className="text-[10px] font-mono px-2 py-0.5 bg-neutral-200 dark:bg-neutral-800 rounded">
+          <span className="text-[10px] font-mono px-2 py-0.5 border border-amber-300 dark:border-amber-800 bg-amber-100/60 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 rounded">
             Historical Baseline Only
           </span>
         </div>
@@ -289,14 +293,15 @@ export function MocksView({ appState, onRefresh }: MocksViewProps) {
       )}
 
       {/* Mocks Table */}
-      <div className="border border-hairline rounded overflow-hidden">
-        <div className="p-3 bg-surface-light dark:bg-surface-dark border-b border-hairline font-bold text-xs uppercase tracking-wider">
-          GATE DA 2027 Mock Tests Log
+      <div className="border border-hairline rounded overflow-hidden shadow-2xs">
+        <div className="p-3 bg-surface-light dark:bg-surface-dark border-b border-hairline font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+          <BookOpen className="w-3.5 h-3.5 text-rose-500" />
+          <span>GATE DA 2027 Mock Tests Log</span>
         </div>
 
         {currentMocks.length === 0 ? (
           <div className="p-8 text-center text-xs text-muted-light dark:text-muted-dark space-y-1">
-            <BookOpen className="w-6 h-6 mx-auto stroke-1" />
+            <BookOpen className="w-6 h-6 mx-auto stroke-1 text-muted-light dark:text-muted-dark" />
             <div>No 2027 preparation mocks logged yet.</div>
             <div className="text-[11px]">
               Full-length mocks will be scheduled as 180-minute uninterrupted sessions with separate review blocks.
@@ -305,13 +310,17 @@ export function MocksView({ appState, onRefresh }: MocksViewProps) {
         ) : (
           <div className="divide-y divide-hairline text-xs">
             {currentMocks.map((mock) => (
-              <div key={mock.id} className="p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-neutral-50 dark:hover:bg-neutral-900">
+              <div key={mock.id} className="p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors">
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="font-semibold">Mock #{mock.testNumber}: {mock.paperSource}</span>
-                    {mock.analysisCompleted && (
-                      <span className="px-1.5 py-0.2 text-[9px] font-mono bg-neutral-200 dark:bg-neutral-800 rounded flex items-center gap-1">
-                        <CheckCircle2 className="w-2.5 h-2.5" /> Analysis Done
+                    {mock.analysisCompleted ? (
+                      <span className="px-1.5 py-0.2 text-[9px] font-mono border border-emerald-200 dark:border-emerald-800 bg-emerald-50/60 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 rounded flex items-center gap-1">
+                        <CheckCircle2 className="w-2.5 h-2.5 text-emerald-500" /> Analysis Done
+                      </span>
+                    ) : (
+                      <span className="px-1.5 py-0.2 text-[9px] font-mono border border-amber-200 dark:border-amber-800 bg-amber-50/60 dark:bg-amber-950/30 text-amber-700 dark:text-amber-300 rounded flex items-center gap-1">
+                        <Clock className="w-2.5 h-2.5 text-amber-500" /> Analysis Pending
                       </span>
                     )}
                   </div>
@@ -326,7 +335,7 @@ export function MocksView({ appState, onRefresh }: MocksViewProps) {
                 </div>
 
                 <div className="text-left sm:text-right font-mono tabular-nums shrink-0 pt-1 sm:pt-0 border-t sm:border-t-0 border-hairline sm:border-transparent">
-                  <div className="text-base font-bold">
+                  <div className="text-base font-bold text-foreground">
                     {mock.rawScore} / {mock.maxMarks}
                   </div>
                   <div className="text-[10px] text-muted-light dark:text-muted-dark">

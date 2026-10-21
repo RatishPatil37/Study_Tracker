@@ -96,31 +96,31 @@ export function AttendanceView({ appState, onRefresh }: AttendanceViewProps) {
 
         <button
           onClick={handleApplyAlternatingProposal}
-          className="flex items-center gap-1.5 px-3 py-1.5 border border-hairline rounded text-xs font-medium hover:bg-neutral-100 dark:hover:bg-neutral-900 self-start sm:self-center"
+          className="flex items-center gap-1.5 px-3 py-1.5 border border-hairline rounded text-xs font-medium hover:bg-neutral-100 dark:hover:bg-neutral-900 self-start sm:self-center shadow-2xs transition-colors"
         >
-          <RefreshCw className="w-3.5 h-3.5" />
+          <RefreshCw className="w-3.5 h-3.5 text-teal-500" />
           <span>Apply Alternating Proposal</span>
         </button>
       </div>
 
       {/* Compliance Risk Warning Banner (Section 4.9) */}
       {isAttendanceAtRisk && (
-        <div className="p-3.5 bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded text-xs space-y-1">
-          <div className="flex items-center gap-2 font-semibold">
-            <AlertTriangle className="w-4 h-4 text-black dark:text-white shrink-0" />
+        <div className="p-3.5 bg-rose-50/50 dark:bg-rose-950/20 border border-rose-200 dark:border-rose-900/60 rounded text-xs space-y-1">
+          <div className="flex items-center gap-2 font-semibold text-rose-700 dark:text-rose-300">
+            <AlertTriangle className="w-4 h-4 text-rose-500 shrink-0" />
             <span>Attendance Compliance Warning: Below {requiredPercent}% Threshold</span>
           </div>
           <p className="text-muted-light dark:text-muted-dark pl-6 leading-relaxed">
             Your planned attendance would result in a projected attendance of{" "}
-            <strong className="text-foreground tabular-nums font-bold">{projectedPercent}%</strong>, which breaches your institution&apos;s required threshold of {requiredPercent}%. StudyOS never recommends violating compulsory attendance rules. Please increase your planned college attendance days.
+            <strong className="text-foreground tabular-nums font-bold text-rose-600 dark:text-rose-400">{projectedPercent}%</strong>, which breaches your institution&apos;s required threshold of {requiredPercent}%. StudyOS never recommends violating compulsory attendance rules. Please increase your planned college attendance days.
           </p>
         </div>
       )}
 
       {/* Commute and Rules Explanation Box */}
-      <div className="p-4 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-2 text-xs leading-relaxed">
+      <div className="p-4 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-2 text-xs leading-relaxed shadow-2xs">
         <div className="font-semibold text-xs uppercase tracking-wider flex items-center gap-2">
-          <Info className="w-4 h-4" />
+          <Info className="w-4 h-4 text-teal-500" />
           <span>Section 4.9 Planning Invariants</span>
         </div>
         <ul className="list-disc pl-4 space-y-1 text-muted-light dark:text-muted-dark text-[11px]">
@@ -137,9 +137,10 @@ export function AttendanceView({ appState, onRefresh }: AttendanceViewProps) {
       </div>
 
       {/* Institutional Attendance Calculator Card */}
-      <div className="p-4 border border-hairline rounded bg-background space-y-3 text-xs">
-        <div className="font-semibold text-xs uppercase tracking-wider pb-1 border-b border-hairline">
-          Institutional Attendance Tracker
+      <div className="p-4 border border-hairline rounded bg-background space-y-3 text-xs shadow-2xs">
+        <div className="font-semibold text-xs uppercase tracking-wider pb-1 border-b border-hairline flex items-center gap-2">
+          <Clock className="w-3.5 h-3.5 text-teal-500" />
+          <span>Institutional Attendance Tracker</span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -178,31 +179,47 @@ export function AttendanceView({ appState, onRefresh }: AttendanceViewProps) {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-2 text-xs">
-          <div className="p-2.5 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-0.5">
-            <div className="text-[10px] text-muted-light dark:text-muted-dark uppercase tracking-wider">Current Attendance</div>
-            <div className="text-base font-bold tabular-nums">
+          <div className="p-2.5 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-0.5 shadow-2xs">
+            <div className="text-[10px] text-muted-light dark:text-muted-dark uppercase tracking-wider flex items-center justify-between">
+              <span>Current</span>
+              <CheckCircle2 className="w-3 h-3 text-teal-500" />
+            </div>
+            <div className="text-base font-bold tabular-nums font-mono text-teal-700 dark:text-teal-400">
               {currentPercent !== null ? `${currentPercent}%` : "Insufficient Data"}
             </div>
             <div className="text-[10px] text-muted-light dark:text-muted-dark">{totalClassesAttended}/{totalClassesHeld} classes</div>
           </div>
 
-          <div className="p-2.5 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-0.5">
-            <div className="text-[10px] text-muted-light dark:text-muted-dark uppercase tracking-wider">Projected Attendance</div>
-            <div className={`text-base font-bold tabular-nums ${isAttendanceAtRisk ? "text-red-600 dark:text-red-400" : ""}`}>
+          <div className="p-2.5 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-0.5 shadow-2xs">
+            <div className="text-[10px] text-muted-light dark:text-muted-dark uppercase tracking-wider flex items-center justify-between">
+              <span>Projected</span>
+              {isAttendanceAtRisk ? (
+                <AlertTriangle className="w-3 h-3 text-rose-500" />
+              ) : (
+                <CheckCircle2 className="w-3 h-3 text-emerald-500" />
+              )}
+            </div>
+            <div className={`text-base font-bold tabular-nums font-mono ${isAttendanceAtRisk ? "text-rose-600 dark:text-rose-400" : "text-emerald-600 dark:text-emerald-400"}`}>
               {projectedPercent !== null ? `${projectedPercent}%` : "Insufficient Data"}
             </div>
             <div className="text-[10px] text-muted-light dark:text-muted-dark">After planned Jan days</div>
           </div>
 
-          <div className="p-2.5 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-0.5">
-            <div className="text-[10px] text-muted-light dark:text-muted-dark uppercase tracking-wider">Jan Working Days</div>
-            <div className="text-base font-bold tabular-nums">{institutionalWorkingDays.length} days</div>
-            <div className="text-[10px] text-muted-light dark:text-muted-dark">Excluding weekends & 26 Jan</div>
+          <div className="p-2.5 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-0.5 shadow-2xs">
+            <div className="text-[10px] text-muted-light dark:text-muted-dark uppercase tracking-wider flex items-center justify-between">
+              <span>Working Days</span>
+              <Calendar className="w-3 h-3 text-blue-500" />
+            </div>
+            <div className="text-base font-bold tabular-nums font-mono">{institutionalWorkingDays.length} days</div>
+            <div className="text-[10px] text-muted-light dark:text-muted-dark">Excl. weekends & 26 Jan</div>
           </div>
 
-          <div className="p-2.5 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-0.5">
-            <div className="text-[10px] text-muted-light dark:text-muted-dark uppercase tracking-wider">Planned Attendance</div>
-            <div className="text-base font-bold tabular-nums">{plannedAttendingDays.length} days</div>
+          <div className="p-2.5 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-0.5 shadow-2xs">
+            <div className="text-[10px] text-muted-light dark:text-muted-dark uppercase tracking-wider flex items-center justify-between">
+              <span>Attending</span>
+              <Clock className="w-3 h-3 text-teal-500" />
+            </div>
+            <div className="text-base font-bold tabular-nums font-mono">{plannedAttendingDays.length} days</div>
             <div className="text-[10px] text-muted-light dark:text-muted-dark">{plannedLeaveDays.length} self-study days</div>
           </div>
         </div>

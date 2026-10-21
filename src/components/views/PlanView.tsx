@@ -262,18 +262,18 @@ export function PlanView({ appState, onRefresh }: PlanViewProps) {
           <button
             onClick={handleTriggerReplan}
             disabled={replanLoading}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-neutral-900 text-white dark:bg-white dark:text-black rounded text-xs font-medium hover:opacity-90 disabled:opacity-50"
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-neutral-900 text-white dark:bg-white dark:text-black rounded text-xs font-medium hover:opacity-90 disabled:opacity-50 shadow-2xs transition-all"
           >
-            <RotateCcw className={`w-3.5 h-3.5 ${replanLoading ? "animate-spin" : ""}`} />
+            <RotateCcw className={`w-3.5 h-3.5 text-blue-400 dark:text-blue-600 ${replanLoading ? "animate-spin" : ""}`} />
             <span>Replan Schedule</span>
           </button>
 
           {/* Quick-add task */}
           <button
             onClick={() => setQuickAddOpen(!quickAddOpen)}
-            className="flex items-center gap-1.5 px-3 py-1.5 border border-hairline rounded text-xs font-medium hover:bg-neutral-100 dark:hover:bg-neutral-900"
+            className="flex items-center gap-1.5 px-3 py-1.5 border border-hairline rounded text-xs font-medium hover:bg-neutral-100 dark:hover:bg-neutral-900 shadow-2xs transition-all"
           >
-            <Plus className="w-3.5 h-3.5" />
+            <Plus className="w-3.5 h-3.5 text-emerald-500" />
             <span>Add Task</span>
           </button>
         </div>
@@ -473,21 +473,22 @@ export function PlanView({ appState, onRefresh }: PlanViewProps) {
       {viewMode === "day" && (
         <div className="space-y-4">
           {/* Day Capacity Bar */}
-          <div className="p-3 border border-hairline rounded bg-background space-y-2">
+          <div className="p-3 border border-hairline rounded bg-background space-y-2 shadow-2xs">
             <div className="flex items-center justify-between text-xs">
-              <span className="font-semibold uppercase tracking-wider text-[11px]">
-                Daily Net Capacity &bull; {currentCap?.mode.replace("_", " ")}
+              <span className="font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-blue-500" />
+                <span>Daily Net Capacity &bull; {currentCap?.mode.replace("_", " ")}</span>
               </span>
-              <span className="tabular-nums">
+              <span className="tabular-nums font-mono">
                 {assignedMinutes} / {currentCap?.netAvailableMinutes || 0} min ({Math.round(((assignedMinutes || 0) / Math.max(1, currentCap?.netAvailableMinutes || 1)) * 100)}%)
               </span>
             </div>
             <div className="w-full h-2 bg-neutral-200 dark:bg-neutral-800 rounded overflow-hidden">
               <div
-                className={`h-full ${
+                className={`h-full transition-all ${
                   assignedMinutes > (currentCap?.netAvailableMinutes || 0)
-                    ? "bg-red-600 dark:bg-red-400"
-                    : "bg-black dark:bg-white"
+                    ? "bg-rose-600 dark:bg-rose-500"
+                    : "bg-blue-600 dark:bg-blue-500"
                 }`}
                 style={{
                   width: `${Math.min(100, Math.round(((assignedMinutes || 0) / Math.max(1, currentCap?.netAvailableMinutes || 1)) * 100))}%`,
@@ -495,8 +496,8 @@ export function PlanView({ appState, onRefresh }: PlanViewProps) {
               />
             </div>
             {currentCap?.lockReason && (
-              <div className="text-[11px] text-muted-light dark:text-muted-dark flex items-center gap-1.5 pt-1">
-                <Lock className="w-3 h-3 shrink-0" />
+              <div className="text-[11px] text-amber-700 dark:text-amber-400 flex items-center gap-1.5 pt-1">
+                <Lock className="w-3 h-3 text-amber-500 shrink-0" />
                 <span>{currentCap.lockReason}</span>
               </div>
             )}
@@ -506,11 +507,11 @@ export function PlanView({ appState, onRefresh }: PlanViewProps) {
           <div className="space-y-2">
             {currentAssignments.length === 0 ? (
               <div className="p-8 border border-hairline rounded text-center text-xs text-muted-light dark:text-muted-dark space-y-2">
-                <Calendar className="w-6 h-6 mx-auto stroke-1" />
+                <Calendar className="w-6 h-6 mx-auto stroke-1 text-muted-light dark:text-muted-dark" />
                 <div>No tasks scheduled for {formatDisplayDateIST(selectedDate)}.</div>
                 <button
                   onClick={handleTriggerReplan}
-                  className="font-medium underline hover:no-underline text-foreground"
+                  className="font-medium underline hover:no-underline text-blue-600 dark:text-blue-400"
                 >
                   Run Replanner to allocate available capacity
                 </button>
@@ -524,18 +525,18 @@ export function PlanView({ appState, onRefresh }: PlanViewProps) {
                 return (
                   <div
                     key={assignment.id}
-                    className="flex flex-col sm:flex-row sm:items-center justify-between p-3 border border-hairline rounded hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors gap-2"
+                    className="flex flex-col sm:flex-row sm:items-center justify-between p-3 border border-hairline rounded hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors gap-2 shadow-2xs"
                   >
                     <div className="flex items-start sm:items-center gap-3 min-w-0">
                       <button
                         onClick={() => handleToggleTaskStatus(task.id, task.status)}
-                        className={`w-4 h-4 mt-0.5 sm:mt-0 rounded border flex items-center justify-center shrink-0 ${
+                        className={`w-4 h-4 mt-0.5 sm:mt-0 rounded border flex items-center justify-center shrink-0 transition-colors ${
                           isDone
-                            ? "bg-black text-white dark:bg-white dark:text-black border-transparent"
-                            : "border-neutral-400 dark:border-neutral-600 hover:border-black dark:hover:border-white"
+                            ? "bg-emerald-600 text-white dark:bg-emerald-500 dark:text-black border-transparent"
+                            : "border-neutral-400 dark:border-neutral-600 hover:border-emerald-500 dark:hover:border-emerald-400"
                         }`}
                       >
-                        {isDone && <CheckCircle2 className="w-3.5 h-3.5" />}
+                        {isDone && <CheckCircle2 className="w-3.5 h-3.5 text-white dark:text-black stroke-[3]" />}
                       </button>
 
                       <div className="min-w-0">
@@ -547,15 +548,15 @@ export function PlanView({ appState, onRefresh }: PlanViewProps) {
                             {task.type.replace("_", " ")}
                           </span>
                           {task.pinned && (
-                            <span className="px-1.5 py-0.2 text-[9px] font-mono bg-neutral-200 dark:bg-neutral-800 rounded flex items-center gap-1">
-                              <Pin className="w-2.5 h-2.5" /> Pinned
+                            <span className="px-1.5 py-0.2 text-[9px] font-mono border border-blue-200 dark:border-blue-900 bg-blue-50/60 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 rounded flex items-center gap-1">
+                              <Pin className="w-2.5 h-2.5 text-blue-500" /> Pinned
                             </span>
                           )}
                         </div>
                         <div className="text-[10px] text-muted-light dark:text-muted-dark mt-0.5 flex items-center gap-2">
-                          <span className="tabular-nums font-semibold">{assignment.plannedMinutes} min planned</span>
+                          <span className="tabular-nums font-mono font-semibold text-foreground">{assignment.plannedMinutes} min planned</span>
                           <span>&bull;</span>
-                          <span className="tabular-nums">Task total: {task.completedMinutes}/{task.estimatedMinutes}m</span>
+                          <span className="tabular-nums font-mono">Total: {task.completedMinutes}/{task.estimatedMinutes}m</span>
                           {assignment.why && (
                             <>
                               <span>&bull;</span>
@@ -570,8 +571,8 @@ export function PlanView({ appState, onRefresh }: PlanViewProps) {
                     <div className="flex items-center gap-1.5 shrink-0 self-end sm:self-center">
                       <button
                         onClick={() => handleTogglePin(task)}
-                        className={`p-1.5 border border-hairline rounded hover:bg-neutral-200 dark:hover:bg-neutral-800 text-xs ${
-                          task.pinned ? "bg-neutral-200 dark:bg-neutral-800" : ""
+                        className={`p-1.5 border border-hairline rounded hover:bg-neutral-200 dark:hover:bg-neutral-800 text-xs transition-colors ${
+                          task.pinned ? "border-blue-300 dark:border-blue-800 text-blue-600 dark:text-blue-400" : "text-muted-light dark:text-muted-dark"
                         }`}
                         title={task.pinned ? "Unpin task" : "Pin task to this day"}
                       >
@@ -579,14 +580,14 @@ export function PlanView({ appState, onRefresh }: PlanViewProps) {
                       </button>
                       <button
                         onClick={() => handleSplitTask(task)}
-                        className="p-1.5 border border-hairline rounded hover:bg-neutral-200 dark:hover:bg-neutral-800 text-xs"
+                        className="p-1.5 border border-hairline rounded hover:bg-amber-50 dark:hover:bg-amber-950/30 text-xs transition-colors text-amber-600 dark:text-amber-400"
                         title="Split task in half"
                       >
                         <Split className="w-3 h-3" />
                       </button>
                       <button
                         onClick={() => handleDeleteTask(task.id)}
-                        className="p-1.5 border border-hairline rounded hover:bg-neutral-200 dark:hover:bg-neutral-800 text-xs text-red-600 dark:text-red-400"
+                        className="p-1.5 border border-hairline rounded hover:bg-rose-50 dark:hover:bg-rose-950/30 text-xs text-rose-600 dark:text-rose-400 transition-colors"
                         title="Delete task"
                       >
                         <Trash2 className="w-3 h-3" />
@@ -682,28 +683,39 @@ export function PlanView({ appState, onRefresh }: PlanViewProps) {
             </div>
 
             {/* Feasibility Summary */}
-            <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
+            <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1 shadow-2xs">
               <div className="flex items-center justify-between font-semibold">
-                <span>Feasibility Status:</span>
-                <span className="uppercase tracking-wider">
+                <span className="flex items-center gap-1.5">
+                  {planPreviewData.feasibility.status === "infeasible" ? (
+                    <AlertTriangle className="w-3.5 h-3.5 text-rose-500" />
+                  ) : (
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  )}
+                  <span>Feasibility Status:</span>
+                </span>
+                <span className={`uppercase tracking-wider font-bold ${
+                  planPreviewData.feasibility.status === "infeasible"
+                    ? "text-rose-600 dark:text-rose-400"
+                    : "text-emerald-600 dark:text-emerald-400"
+                }`}>
                   {planPreviewData.feasibility.status}
                 </span>
               </div>
               <div className="text-[11px] text-muted-light dark:text-muted-dark space-y-0.5">
                 <div>
-                  Net Capacity: {Number((planPreviewData.feasibility.totalRemainingCapacityMinutes / 60).toFixed(1))}h &bull; Work Demand: {Number((planPreviewData.feasibility.totalRemainingWorkMinutes / 60).toFixed(1))}h
+                  Net Capacity: <span className="font-mono">{Number((planPreviewData.feasibility.totalRemainingCapacityMinutes / 60).toFixed(1))}h</span> &bull; Work Demand: <span className="font-mono">{Number((planPreviewData.feasibility.totalRemainingWorkMinutes / 60).toFixed(1))}h</span>
                 </div>
                 <div>
-                  Surplus / Deficit: {Number((planPreviewData.feasibility.surplusOrDeficitMinutes / 60).toFixed(1))}h
+                  Surplus / Deficit: <span className="font-mono font-semibold">{Number((planPreviewData.feasibility.surplusOrDeficitMinutes / 60).toFixed(1))}h</span>
                 </div>
               </div>
             </div>
 
             {/* Conflicts & Residual Backlog Alerts */}
             {planPreviewData.unscheduledTasks.length > 0 && (
-              <div className="p-3 bg-neutral-100 dark:bg-neutral-900 border border-hairline rounded space-y-2">
-                <div className="flex items-center gap-2 font-semibold">
-                  <AlertTriangle className="w-4 h-4 text-black dark:text-white shrink-0" />
+              <div className="p-3 bg-rose-50/50 dark:bg-rose-950/20 border border-rose-200 dark:border-rose-900/60 rounded space-y-2">
+                <div className="flex items-center gap-2 font-semibold text-rose-700 dark:text-rose-300">
+                  <AlertTriangle className="w-4 h-4 text-rose-500 shrink-0" />
                   <span>Residual Backlog ({planPreviewData.unscheduledTasks.length} unplaced tasks)</span>
                 </div>
                 <p className="text-[11px] text-muted-light dark:text-muted-dark">

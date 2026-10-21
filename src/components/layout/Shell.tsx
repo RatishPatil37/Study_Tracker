@@ -117,14 +117,14 @@ export function Shell({
   const daysRemaining = Math.max(0, diffDaysIST(todayStr, examDateStr));
 
   const navItems = [
-    { id: "today", label: "Today", icon: CheckCircle2 },
-    { id: "plan", label: "Plan", icon: Calendar },
-    { id: "subjects", label: "Subjects", icon: Layers },
-    { id: "pyqs", label: "PYQs", icon: HelpCircle },
-    { id: "mocks", label: "Mocks", icon: BookOpen },
-    { id: "review", label: "Review", icon: FileText },
-    { id: "attendance", label: "Attendance", icon: Clock },
-    { id: "settings", label: "Settings", icon: Settings },
+    { id: "today", label: "Today", icon: CheckCircle2, color: "text-emerald-500 dark:text-emerald-400" },
+    { id: "plan", label: "Plan", icon: Calendar, color: "text-blue-500 dark:text-blue-400" },
+    { id: "subjects", label: "Subjects", icon: Layers, color: "text-violet-500 dark:text-violet-400" },
+    { id: "pyqs", label: "PYQs", icon: HelpCircle, color: "text-amber-500 dark:text-amber-400" },
+    { id: "mocks", label: "Mocks", icon: BookOpen, color: "text-rose-500 dark:text-rose-400" },
+    { id: "review", label: "Review", icon: FileText, color: "text-indigo-500 dark:text-indigo-400" },
+    { id: "attendance", label: "Attendance", icon: Clock, color: "text-teal-500 dark:text-teal-400" },
+    { id: "settings", label: "Settings", icon: Settings, color: "text-zinc-500 dark:text-zinc-400" },
   ];
 
   return (
@@ -132,9 +132,10 @@ export function Shell({
       {/* Desktop Sidebar */}
       <aside className="hidden md:flex flex-col w-60 border-r border-hairline bg-surface-light dark:bg-surface-dark p-4 shrink-0 select-none">
         <div className="flex items-center justify-between pb-4 border-b border-hairline mb-4">
-          <div>
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
             <span className="font-bold tracking-wider text-sm">STUDYOS</span>
-            <span className="ml-2 text-[10px] font-mono px-1 py-0.5 bg-neutral-200 dark:bg-neutral-800 rounded">
+            <span className="text-[10px] font-mono px-1.5 py-0.5 bg-neutral-200 dark:bg-neutral-800 rounded text-muted-light dark:text-muted-dark">
               v1.0.0
             </span>
           </div>
@@ -142,8 +143,9 @@ export function Shell({
 
         {/* Exam Countdown Badge */}
         <div className="mb-6 p-2.5 bg-background border border-hairline rounded text-xs space-y-1">
-          <div className="text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-            Target: GATE DA 2027
+          <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+            <span>Target: GATE DA 2027</span>
+            <Calendar className="w-3.5 h-3.5 text-blue-500" />
           </div>
           <div className="flex items-baseline justify-between">
             <span className="text-sm font-semibold tabular-nums">{daysRemaining} days</span>
@@ -162,11 +164,11 @@ export function Shell({
                 onClick={() => onTabChange(item.id)}
                 className={`w-full flex items-center gap-3 px-3 py-2 rounded text-xs font-medium transition-colors ${
                   active
-                    ? "bg-solid-black text-solid-white dark:bg-solid-black dark:text-background"
+                    ? "bg-solid-black text-solid-white dark:bg-solid-black dark:text-background shadow-xs"
                     : "text-muted-light dark:text-muted-dark hover:bg-neutral-100 dark:hover:bg-neutral-900 hover:text-foreground"
                 }`}
               >
-                <Icon className="w-4 h-4 shrink-0" />
+                <Icon className={`w-4 h-4 shrink-0 ${active ? "text-inherit" : item.color}`} />
                 <span>{item.label}</span>
               </button>
             );
@@ -175,7 +177,10 @@ export function Shell({
 
         {/* Footer info */}
         <div className="pt-4 border-t border-hairline text-[11px] text-muted-light dark:text-muted-dark space-y-1">
-          <div>Timezone: Asia/Kolkata</div>
+          <div className="flex items-center gap-1.5">
+            <Clock className="w-3 h-3 text-teal-500" />
+            <span>Asia/Kolkata</span>
+          </div>
           <div>Baseline: 21 / 100 (Historical)</div>
         </div>
       </aside>
@@ -201,33 +206,33 @@ export function Shell({
           {/* Session Timer Controls */}
           <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             {appState?.activeSession ? (
-              <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 bg-surface-light dark:bg-surface-dark border border-hairline rounded text-[11px] sm:text-xs font-mono">
-                <span className="inline-block w-2 h-2 rounded-full bg-black dark:bg-white animate-pulse" />
+              <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 bg-surface-light dark:bg-surface-dark border border-hairline rounded text-[11px] sm:text-xs font-mono shadow-2xs">
+                <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span className="tabular-nums font-semibold">{formatTimer(sessionTimer)}</span>
                 <button
                   onClick={handlePauseResume}
                   disabled={sessionLoading}
-                  className="p-1 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded"
+                  className="p-1 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded transition-colors text-amber-500"
                   title={isSessionRunning ? "Pause timer" : "Resume timer"}
                 >
-                  {isSessionRunning ? <Pause className="w-3 h-3 sm:w-3.5 sm:h-3.5" /> : <Play className="w-3 h-3 sm:w-3.5 sm:h-3.5" />}
+                  {isSessionRunning ? <Pause className="w-3 h-3 sm:w-3.5 sm:h-3.5" /> : <Play className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current" />}
                 </button>
                 <button
                   onClick={handleEndSession}
                   disabled={sessionLoading}
-                  className="p-1 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded text-red-600 dark:text-red-400"
+                  className="p-1 hover:bg-rose-100 dark:hover:bg-rose-950/40 rounded transition-colors text-rose-500"
                   title="End and record session"
                 >
-                  <Square className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                  <Square className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current" />
                 </button>
               </div>
             ) : (
               <button
                 onClick={handleStartSession}
                 disabled={sessionLoading}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 bg-neutral-900 text-white dark:bg-white dark:text-black rounded text-[11px] sm:text-xs font-medium hover:opacity-90"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 bg-neutral-900 text-white dark:bg-white dark:text-black rounded text-[11px] sm:text-xs font-medium hover:opacity-90 shadow-2xs transition-all"
               >
-                <Play className="w-3 h-3 fill-current" />
+                <Play className="w-3 h-3 fill-emerald-400 text-emerald-400" />
                 <span>Start Session</span>
               </button>
             )}
@@ -246,9 +251,10 @@ export function Shell({
             <div className="relative w-72 max-w-[80vw] bg-surface-light dark:bg-surface-dark border-r border-hairline p-4 flex flex-col justify-between shadow-2xl z-50">
               <div className="space-y-4">
                 <div className="flex items-center justify-between pb-3 border-b border-hairline">
-                  <div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                     <span className="font-bold tracking-wider text-sm">STUDYOS</span>
-                    <span className="ml-2 text-[10px] font-mono px-1 py-0.5 bg-neutral-200 dark:bg-neutral-800 rounded">
+                    <span className="text-[10px] font-mono px-1.5 py-0.5 bg-neutral-200 dark:bg-neutral-800 rounded text-muted-light dark:text-muted-dark">
                       v1.0.0
                     </span>
                   </div>
@@ -262,8 +268,9 @@ export function Shell({
 
                 {/* Exam Countdown Badge */}
                 <div className="p-2.5 bg-background border border-hairline rounded text-xs space-y-1">
-                  <div className="text-[10px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-                    Target: GATE DA 2027
+                  <div className="flex items-center justify-between text-[10px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+                    <span>Target: GATE DA 2027</span>
+                    <Calendar className="w-3.5 h-3.5 text-blue-500" />
                   </div>
                   <div className="flex items-baseline justify-between">
                     <span className="text-sm font-semibold tabular-nums">{daysRemaining} days</span>
@@ -284,11 +291,11 @@ export function Shell({
                         }}
                         className={`w-full flex items-center gap-3 px-3 py-2.5 rounded text-xs font-medium transition-colors ${
                           active
-                            ? "bg-solid-black text-solid-white dark:bg-solid-black dark:text-background"
+                            ? "bg-solid-black text-solid-white dark:bg-solid-black dark:text-background shadow-xs"
                             : "text-muted-light dark:text-muted-dark hover:bg-neutral-100 dark:hover:bg-neutral-900"
                         }`}
                       >
-                        <Icon className="w-4 h-4 shrink-0" />
+                        <Icon className={`w-4 h-4 shrink-0 ${active ? "text-inherit" : item.color}`} />
                         <span>{item.label}</span>
                       </button>
                     );
@@ -296,8 +303,11 @@ export function Shell({
                 </nav>
               </div>
 
-              <div className="pt-4 border-t border-hairline text-[10px] text-muted-light dark:text-muted-dark space-y-0.5">
-                <div>Timezone: Asia/Kolkata</div>
+              <div className="pt-4 border-t border-hairline text-[10px] text-muted-light dark:text-muted-dark space-y-1">
+                <div className="flex items-center gap-1.5">
+                  <Clock className="w-3 h-3 text-teal-500" />
+                  <span>Timezone: Asia/Kolkata</span>
+                </div>
                 <div>Baseline: 21 / 100 (Historical)</div>
               </div>
             </div>
@@ -312,11 +322,11 @@ export function Shell({
         {/* Fixed Mobile Bottom Navigation Bar (5 Primary Touch Targets) */}
         <nav className="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-md border-t border-hairline px-2 py-1 flex items-center justify-around select-none">
           {[
-            { id: "today", label: "Today", icon: CheckCircle2 },
-            { id: "plan", label: "Plan", icon: Calendar },
-            { id: "mocks", label: "Mocks", icon: BookOpen },
-            { id: "review", label: "Review", icon: FileText },
-            { id: "attendance", label: "Attend", icon: Clock },
+            { id: "today", label: "Today", icon: CheckCircle2, color: "text-emerald-500" },
+            { id: "plan", label: "Plan", icon: Calendar, color: "text-blue-500" },
+            { id: "mocks", label: "Mocks", icon: BookOpen, color: "text-rose-500" },
+            { id: "review", label: "Review", icon: FileText, color: "text-indigo-500" },
+            { id: "attendance", label: "Attend", icon: Clock, color: "text-teal-500" },
           ].map((item) => {
             const Icon = item.icon;
             const active = currentTab === item.id;
@@ -326,11 +336,11 @@ export function Shell({
                 onClick={() => onTabChange(item.id)}
                 className={`flex flex-col items-center justify-center py-1 px-2.5 rounded text-[10px] font-medium transition-colors min-w-[54px] ${
                   active
-                    ? "text-black dark:text-white font-bold"
+                    ? "text-foreground font-bold"
                     : "text-muted-light dark:text-muted-dark hover:text-foreground"
                 }`}
               >
-                <Icon className={`w-4 h-4 mb-0.5 ${active ? "stroke-[2.5]" : "stroke-[1.5]"}`} />
+                <Icon className={`w-4 h-4 mb-0.5 ${active ? `${item.color} stroke-[2.5]` : `${item.color} opacity-70 stroke-[1.5]`}`} />
                 <span className="tracking-tight">{item.label}</span>
               </button>
             );
@@ -339,7 +349,7 @@ export function Shell({
             onClick={() => setMobileMenuOpen(true)}
             className="flex flex-col items-center justify-center py-1 px-2.5 rounded text-[10px] font-medium text-muted-light dark:text-muted-dark hover:text-foreground min-w-[54px]"
           >
-            <Menu className="w-4 h-4 mb-0.5 stroke-[1.5]" />
+            <Menu className="w-4 h-4 mb-0.5 stroke-[1.5] text-zinc-500" />
             <span className="tracking-tight">More</span>
           </button>
         </nav>

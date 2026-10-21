@@ -96,35 +96,48 @@ export function SubjectsView({ appState, onRefresh }: SubjectsViewProps) {
       {activeTab === "gate" && (
         <div className="space-y-6">
           {/* Workload Math Summary Card (Section 2) */}
-          <div className="p-4 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-3">
+          <div className="p-4 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-3 shadow-2xs">
             <div className="flex items-center justify-between pb-2 border-b border-hairline">
-              <span className="font-bold uppercase tracking-wider text-xs">
-                Lecture Workload & Multipliers Summary
+              <span className="font-bold uppercase tracking-wider text-xs flex items-center gap-1.5">
+                <Layers className="w-4 h-4 text-violet-500" />
+                <span>Lecture Workload & Multipliers Summary</span>
               </span>
-              <span className="text-xs text-muted-light dark:text-muted-dark">
+              <span className="text-xs text-muted-light dark:text-muted-dark font-mono">
                 Section 2 Invariant
               </span>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-              <div>
-                <div className="text-[11px] text-muted-light dark:text-muted-dark">Quoted Source Runtime</div>
-                <div className="text-xl font-bold tabular-nums">{workload.totalSourceHours}h</div>
-                <div className="text-[10px] text-muted-light dark:text-muted-dark">Video length</div>
+              <div className="p-2.5 bg-background border border-hairline rounded shadow-2xs">
+                <div className="text-[11px] text-muted-light dark:text-muted-dark flex items-center justify-between">
+                  <span>Source Runtime</span>
+                  <Clock className="w-3.5 h-3.5 text-blue-500" />
+                </div>
+                <div className="text-xl font-bold tabular-nums font-mono mt-1">{workload.totalSourceHours}h</div>
+                <div className="text-[10px] text-muted-light dark:text-muted-dark">Raw video length</div>
               </div>
-              <div>
-                <div className="text-[11px] text-muted-light dark:text-muted-dark">Effective Elapsed Effort</div>
-                <div className="text-xl font-bold tabular-nums">{workload.totalEffectiveHours}h</div>
-                <div className="text-[10px] text-muted-light dark:text-muted-dark">Real study time (1.5x–2.0x)</div>
+              <div className="p-2.5 bg-background border border-hairline rounded shadow-2xs">
+                <div className="text-[11px] text-muted-light dark:text-muted-dark flex items-center justify-between">
+                  <span>Elapsed Effort</span>
+                  <Clock className="w-3.5 h-3.5 text-violet-500" />
+                </div>
+                <div className="text-xl font-bold tabular-nums font-mono mt-1">{workload.totalEffectiveHours}h</div>
+                <div className="text-[10px] text-muted-light dark:text-muted-dark">Real study (1.5x–2.0x)</div>
               </div>
-              <div>
-                <div className="text-[11px] text-muted-light dark:text-muted-dark">Active Courses</div>
-                <div className="text-xl font-bold tabular-nums">{workload.activeCourseCount}</div>
+              <div className="p-2.5 bg-background border border-hairline rounded shadow-2xs">
+                <div className="text-[11px] text-muted-light dark:text-muted-dark flex items-center justify-between">
+                  <span>Active Courses</span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                </div>
+                <div className="text-xl font-bold tabular-nums font-mono mt-1">{workload.activeCourseCount}</div>
                 <div className="text-[10px] text-muted-light dark:text-muted-dark">1 variant per subject</div>
               </div>
-              <div>
-                <div className="text-[11px] text-muted-light dark:text-muted-dark">Full DBMS Alternative</div>
-                <div className="text-xl font-bold tabular-nums">499.0h</div>
+              <div className="p-2.5 bg-background border border-hairline rounded shadow-2xs">
+                <div className="text-[11px] text-muted-light dark:text-muted-dark flex items-center justify-between">
+                  <span>Full DBMS Alt</span>
+                  <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
+                </div>
+                <div className="text-xl font-bold tabular-nums font-mono mt-1">499.0h</div>
                 <div className="text-[10px] text-muted-light dark:text-muted-dark">If 92h playlist chosen</div>
               </div>
             </div>
@@ -135,9 +148,12 @@ export function SubjectsView({ appState, onRefresh }: SubjectsViewProps) {
           </div>
 
           {/* DBMS Variant Switcher Box */}
-          <div className="p-4 border border-hairline rounded bg-background space-y-2 text-xs">
+          <div className="p-4 border border-hairline rounded bg-background space-y-2 text-xs shadow-2xs">
             <div className="flex items-center justify-between">
-              <span className="font-semibold text-xs">DBMS Course Selection (Crash vs Full)</span>
+              <span className="font-semibold text-xs flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5 text-violet-500" />
+                <span>DBMS Course Selection (Crash vs Full)</span>
+              </span>
               <span className="text-[10px] font-mono px-1.5 py-0.5 bg-neutral-100 dark:bg-neutral-800 rounded">
                 Only one active at a time
               </span>
@@ -152,9 +168,9 @@ export function SubjectsView({ appState, onRefresh }: SubjectsViewProps) {
                   name="dbms_variant"
                   checked={courses.find((c) => c.id === "course-dbms-crash")?.selected}
                   onChange={() => handleSelectDbmsVariant("course-dbms-crash")}
-                  className="accent-black dark:accent-white"
+                  className="accent-emerald-600"
                 />
-                <span>35h Crash Course (Preferred, 52.5h effective)</span>
+                <span className="font-medium text-emerald-700 dark:text-emerald-400">35h Crash Course (Preferred, 52.5h effective)</span>
               </label>
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
@@ -162,17 +178,18 @@ export function SubjectsView({ appState, onRefresh }: SubjectsViewProps) {
                   name="dbms_variant"
                   checked={courses.find((c) => c.id === "course-dbms-full")?.selected}
                   onChange={() => handleSelectDbmsVariant("course-dbms-full")}
-                  className="accent-black dark:accent-white"
+                  className="accent-neutral-800"
                 />
-                <span>92h Full Playlist (Alternative, 138h effective)</span>
+                <span className="text-muted-light dark:text-muted-dark">92h Full Playlist (Alternative, 138h effective)</span>
               </label>
             </div>
           </div>
 
           {/* Courses & Lectures Table */}
-          <div className="border border-hairline rounded overflow-hidden">
-            <div className="p-3 bg-surface-light dark:bg-surface-dark border-b border-hairline font-bold text-xs uppercase tracking-wider">
-              GATE Core Subjects & Multipliers
+          <div className="border border-hairline rounded overflow-hidden shadow-2xs">
+            <div className="p-3 bg-surface-light dark:bg-surface-dark border-b border-hairline font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+              <BookOpen className="w-3.5 h-3.5 text-violet-500" />
+              <span>GATE Core Subjects & Multipliers</span>
             </div>
             <div className="divide-y divide-hairline text-xs">
               {gateCourses.map((course) => {
@@ -180,23 +197,23 @@ export function SubjectsView({ appState, onRefresh }: SubjectsViewProps) {
                 const isWeak = course.subjectId === "subj-prob-stats" || course.subjectId === "subj-dbms";
 
                 return (
-                  <div key={course.id} className="p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-neutral-50 dark:hover:bg-neutral-900">
+                  <div key={course.id} className="p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors">
                     <div>
                       <div className="flex items-center gap-2 flex-wrap">
                         <span className="font-semibold">{course.label}</span>
                         {isWeak && (
-                          <span className="px-1.5 py-0.2 text-[9px] font-mono border border-hairline rounded">
+                          <span className="px-1.5 py-0.2 text-[9px] font-mono border border-rose-200 dark:border-rose-900 bg-rose-50/60 dark:bg-rose-950/30 text-rose-700 dark:text-rose-300 rounded">
                             Weak Baseline
                           </span>
                         )}
                         {course.subjectId === "subj-aptitude" && (
-                          <span className="px-1.5 py-0.2 text-[9px] font-mono bg-neutral-200 dark:bg-neutral-800 rounded">
+                          <span className="px-1.5 py-0.2 text-[9px] font-mono border border-amber-200 dark:border-amber-900 bg-amber-50/60 dark:bg-amber-950/30 text-amber-700 dark:text-amber-300 rounded">
                             Locked until Dec 1
                           </span>
                         )}
                       </div>
                       <div className="text-[11px] text-muted-light dark:text-muted-dark mt-0.5">
-                        {course.totalLectures ? `${course.totalLectures} lectures` : "Unknown lecture count"} &bull; Multiplier: {course.effectiveMultiplier}x
+                        {course.totalLectures ? `${course.totalLectures} lectures` : "Unknown lecture count"} &bull; Multiplier: <strong className="font-mono text-foreground">{course.effectiveMultiplier}x</strong>
                       </div>
                     </div>
 

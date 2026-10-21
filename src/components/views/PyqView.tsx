@@ -90,46 +90,50 @@ export function PyqView({ appState, onRefresh }: PyqViewProps) {
 
         <button
           onClick={() => setOpenModal(true)}
-          className="flex items-center gap-1.5 px-3 py-1.5 bg-neutral-900 text-white dark:bg-white dark:text-black rounded text-xs font-medium hover:opacity-90 self-start sm:self-center"
+          className="flex items-center gap-1.5 px-3 py-1.5 bg-neutral-900 text-white dark:bg-white dark:text-black rounded text-xs font-medium hover:opacity-90 self-start sm:self-center shadow-2xs"
         >
-          <Plus className="w-3.5 h-3.5" />
+          <Plus className="w-3.5 h-3.5 text-emerald-400" />
           <span>Record PYQ Attempt</span>
         </button>
       </div>
 
       {/* Metrics Row */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-          <div className="text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-            Distinct Questions
+        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1 shadow-2xs">
+          <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+            <span>Distinct Questions</span>
+            <HelpCircle className="w-3.5 h-3.5 text-blue-500" />
           </div>
-          <div className="text-xl font-bold tabular-nums">{distinctQuestionIds.size}</div>
+          <div className="text-xl font-bold tabular-nums font-mono">{distinctQuestionIds.size}</div>
           <div className="text-[10px] text-muted-light dark:text-muted-dark">Separate from attempts</div>
         </div>
 
-        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-          <div className="text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-            Total Attempts
+        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1 shadow-2xs">
+          <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+            <span>Total Attempts</span>
+            <Clock className="w-3.5 h-3.5 text-amber-500" />
           </div>
-          <div className="text-xl font-bold tabular-nums">{attempts.length}</div>
+          <div className="text-xl font-bold tabular-nums font-mono">{attempts.length}</div>
           <div className="text-[10px] text-muted-light dark:text-muted-dark">With timestamp history</div>
         </div>
 
-        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-          <div className="text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-            Logged Accuracy
+        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1 shadow-2xs">
+          <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+            <span>Logged Accuracy</span>
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
           </div>
-          <div className="text-xl font-bold tabular-nums">
+          <div className="text-xl font-bold tabular-nums font-mono">
             {attempts.length > 0 ? `${accuracyPercent}%` : "Not Yet Assessed"}
           </div>
           <div className="text-[10px] text-muted-light dark:text-muted-dark">Real data only</div>
         </div>
 
-        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1">
-          <div className="text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
-            Embedded In Lectures
+        <div className="p-3 border border-hairline rounded bg-surface-light dark:bg-surface-dark space-y-1 shadow-2xs">
+          <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-light dark:text-muted-dark">
+            <span>Embedded In Lectures</span>
+            <Clock className="w-3.5 h-3.5 text-purple-500" />
           </div>
-          <div className="text-xl font-bold tabular-nums">
+          <div className="text-xl font-bold tabular-nums font-mono">
             {attempts.filter((a: QuestionAttempt) => a.isEmbeddedInLecture).length}
           </div>
           <div className="text-[10px] text-muted-light dark:text-muted-dark">No double-counted time</div>
@@ -281,40 +285,53 @@ export function PyqView({ appState, onRefresh }: PyqViewProps) {
           </div>
         ) : (
           <div className="divide-y divide-hairline text-xs">
-            {filteredAttempts.map((attempt: QuestionAttempt) => (
-              <div key={attempt.id} className="p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-900">
-                <div className="flex items-start sm:items-center gap-3 min-w-0">
-                  {attempt.result === "correct" ? (
-                    <CheckCircle2 className="w-4 h-4 text-black dark:text-white shrink-0 mt-0.5 sm:mt-0" />
-                  ) : (
-                    <XCircle className="w-4 h-4 text-muted-light dark:text-muted-dark shrink-0 mt-0.5 sm:mt-0" />
-                  )}
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="font-semibold">{attempt.stableQuestionId}</span>
-                      <span className="px-1.5 py-0.2 text-[9px] font-mono border border-hairline rounded uppercase">
-                        {attempt.result}
-                      </span>
-                      {attempt.isEmbeddedInLecture && (
-                        <span className="px-1.5 py-0.2 text-[9px] font-mono bg-neutral-200 dark:bg-neutral-800 rounded">
-                          Embedded Attempt
+            {filteredAttempts.map((attempt: QuestionAttempt) => {
+              const isCorrect = attempt.result === "correct";
+              const isIncorrect = attempt.result === "incorrect";
+
+              return (
+                <div key={attempt.id} className="p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors">
+                  <div className="flex items-start sm:items-center gap-3 min-w-0">
+                    {isCorrect ? (
+                      <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5 sm:mt-0 stroke-[2.5]" />
+                    ) : isIncorrect ? (
+                      <XCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5 sm:mt-0 stroke-[2.5]" />
+                    ) : (
+                      <Clock className="w-4 h-4 text-amber-500 shrink-0 mt-0.5 sm:mt-0" />
+                    )}
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="font-semibold">{attempt.stableQuestionId}</span>
+                        <span className={`px-1.5 py-0.2 text-[9px] font-mono border rounded uppercase font-semibold ${
+                          isCorrect
+                            ? "border-emerald-200 dark:border-emerald-900 bg-emerald-50/60 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300"
+                            : isIncorrect
+                            ? "border-rose-200 dark:border-rose-900 bg-rose-50/60 dark:bg-rose-950/30 text-rose-700 dark:text-rose-300"
+                            : "border-amber-200 dark:border-amber-900 bg-amber-50/60 dark:bg-amber-950/30 text-amber-700 dark:text-amber-300"
+                        }`}>
+                          {attempt.result}
                         </span>
+                        {attempt.isEmbeddedInLecture && (
+                          <span className="px-1.5 py-0.2 text-[9px] font-mono border border-blue-200 dark:border-blue-900 bg-blue-50/60 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 rounded">
+                            Embedded Attempt
+                          </span>
+                        )}
+                      </div>
+                      {attempt.notes && (
+                        <div className="text-[11px] text-muted-light dark:text-muted-dark mt-0.5">
+                          {attempt.notes}
+                        </div>
                       )}
                     </div>
-                    {attempt.notes && (
-                      <div className="text-[11px] text-muted-light dark:text-muted-dark mt-0.5">
-                        {attempt.notes}
-                      </div>
-                    )}
                   </div>
-                </div>
 
                 <div className="text-left sm:text-right text-[11px] shrink-0 font-mono tabular-nums text-muted-light dark:text-muted-dark pt-1 sm:pt-0 border-t sm:border-t-0 border-hairline sm:border-transparent">
                   <div>{attempt.timeTakenSeconds}s &bull; Confidence: {attempt.confidence}</div>
                   <div className="text-[10px]">{new Date(attempt.attemptedAt).toLocaleDateString()}</div>
                 </div>
               </div>
-            ))}
+            );
+          })}
           </div>
         )}
       </div>
