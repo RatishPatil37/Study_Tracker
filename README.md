@@ -98,6 +98,7 @@ supabase/
 
 ## Documentation
 
+- `USER_GUIDE.md`: Comprehensive end-to-end user guide and daily workflow handbook
 - `StudyOS_Implementation_Plan.md`: Primary specification
 - `QA_REPORT.md`: Full verification report with automated test metrics and browser walkthrough details
 - `IMPLEMENTATION_STATUS.md`: Phase-by-phase status tracker
